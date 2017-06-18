@@ -1,7 +1,9 @@
 package firma.servisiImplementacija;
 
 import java.math.BigDecimal;
+import java.util.Date;
 import java.util.List;
+import java.util.Random;
 
 import javax.servlet.http.HttpSession;
 
@@ -33,10 +35,24 @@ public class ZaglavljeFaktureServisImpl implements ZaglavljeFaktureServis {
 		zf.adresaDobavljaca = f.adresa;
 		zf.pibDobavljaca = f.pib;
 		zf.ukupnoRobaIUsluge = zf.vrijednostRobe.add(zf.vrijednostUsluga);		
-		BigDecimal vrijednostSRabatom = zf.ukupnoRobaIUsluge.add(zf.ukupanRabat.negate().multiply(zf.ukupnoRobaIUsluge.divide(new BigDecimal(100.0), 1)));
+		BigDecimal vrijednostSRabatom = zf.ukupnoRobaIUsluge.add(zf.ukupnoRobaIUsluge.negate().multiply(zf.ukupanRabat.divide(new BigDecimal(100))));
 		zf.ukupanPorez = vrijednostSRabatom.multiply(new BigDecimal(0.17));
 		zf.iznosZaUplatu = zf.ukupanPorez.add(vrijednostSRabatom);
+		zf.datumRacuna = (java.sql.Date) new Date();
+		zf.datumValute = zf.datumRacuna;
+		zf.brojRacuna = generisiRandomBroj();
 		return new ResponseEntity<ZaglavljeFakture>(zaglavljeFaktureRepozitorijum.save(zf),HttpStatus.CREATED);
+	}
+
+	private String generisiRandomBroj() {
+		 int Start = 1;
+		 int End = 999999;
+		 Random random = new Random();
+		 long range = (long)End - (long)Start + 1;
+		    // compute a fraction of the range, 0 <= frac < range
+		 long fraction = (long)(range * random.nextDouble());
+		 int randomNumber =  (int)(fraction + Start);    
+		return Integer.toString(randomNumber);
 	}
 
 	@Override

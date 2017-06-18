@@ -6,7 +6,6 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.xml.bind.annotation.XmlAccessType;
@@ -93,14 +92,6 @@ public class NalogZaPrenos {
 
 	@XmlElement
 	public String valuta;
-
-	@XmlTransient
-	@ManyToOne
-	public MedjubankarskiPrenos medjubankarskiPrenos;
-	
-	@XmlTransient
-	@ManyToOne
-	public DnevnoStanjeRacuna dnevnoStanjeRacuna;
 
 	public NalogZaPrenos() {
 		super();
