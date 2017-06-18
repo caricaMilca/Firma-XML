@@ -1,0 +1,118 @@
+<!doctype html>
+<html>
+<head>
+<title>Poslovna</title>
+<meta http-equiv="Content-Type" content="text/html;charset=ISO-8859-1">
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet"
+	href="//netdna.bootstrapcdn.com/font-awesome/4.0.0/css/font-awesome.css">
+<link href="css/sweetalert.css" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css" />
+<link rel="stylesheet" href="https://www.w3schools.com/lib/w3.css">
+<link href="css/ng-notify.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="js/angular.min.js"></script>
+<script type="text/javascript" src="js/sweetalert.min.js"></script>
+<script type="text/javascript" src="js/jquery-3.0.0.min.js"></script>
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/angular-route.min.js"></script>
+<script type="text/javascript" src="js/app.js"></script>
+<script type="text/javascript" src="js/controllers.js"></script>
+<script type="text/javascript" src="js/service.js"></script>
+<script type="text/javascript" src="js/moment.min.js"></script>
+<script type="text/javascript" src="js/ng-notify.js"></script>
+</head>
+<body ng-app="webApp">
+
+	<!-- HEADER AND NAVBAR -->
+	<div ng-controller="appController">
+		<header>
+
+			<nav class="navbar navbar-default">
+				<div class="container-fluid">
+					<div class="navbar-header" ng-show="korisnik">
+						<button type="button" class="navbar-toggle collapsed"
+							data-toggle="collapse"
+							data-target="#bs-example-navbar-collapse-1">
+							<span class="sr-only">Toggle navigation</span> <span
+								class="icon-bar"></span> <span class="icon-bar"></span> <span
+								class="icon-bar"></span>
+						</button>
+						<a class="navbar-brand" href="#!/index">Pocetna</a>
+					</div>
+					<div class="collapse navbar-collapse"
+						id="bs-example-navbar-collapse-1">
+						<div ng-show="korisnik">
+							<ul class="nav navbar-nav">
+								<li class="dropdown"><a href="" class="dropdown-toggle"
+									data-toggle="dropdown" role="button" aria-expanded="false">Tabele
+										<span class="caret"></span>
+								</a>
+									<ul class="dropdown-menu" role="menu">
+										<li><a href="/#!/Klijent/klijenti">Klijenti</a></li>
+										<li><a href="/#!/Drzava/sveDrzave">Drzave</a></li>
+										<li><a href="/#!/nm/svaNM">Naseljena mesta</a></li>
+										<li><a href="/#!/valuta/valute">Valute</a></li>
+										<li><a href="/#!/kursUValuti/kurs">Kurs u valuti</a></li>
+										<li><a href="/#!/kursnaLista/lista">Kursne liste</a></li>
+										<li><a href="/#!/Djelatnost/sveDjelatnosti">Djelatnosti</a></li>
+										<li><a href="/#!/VrstaPlacanja/vrstePlacanja">Vrste
+												placanja</a></li>
+										<li><a href="/#!/Racun/racuni">Racuni</a></li>
+										<li><a href="/#!/AnalitikaIzvoda/analitike">Analitika
+												izvoda</a></li>
+									</ul></li>
+								<li class="dropdown"><a href="" class="dropdown-toggle"
+									data-toggle="dropdown" role="button" aria-expanded="false">Kreiraj
+										nalog <span class="caret"></span>
+								</a>
+									<ul class="dropdown-menu" role="menu">
+										<li><a href="/#!/AnalitikaIzvoda/uplata" ng-click="tipTransakcije = 'UPLATA'">Uplata</a></li>
+										<li><a href="/#!/AnalitikaIzvoda/isplata" ng-click="tipTransakcije = 'ISPLATA'">Isplata</a></li>
+										<li><a href="/#!/AnalitikaIzvoda/transfer" ng-click="tipTransakcije = 'TRANSFER'">Transfer</a></li>
+									</ul></li>
+							</ul>
+							<div id="signin" class="navbar-form navbar-right" role="form">
+								<a href="#!/changePassword">Podesavanja</a>
+								<button type="submit" class="btn btn-primary"
+									ng-click="logout()">Izloguj se</button>
+
+							</div>
+						</div>
+						<div id="signin" class="navbar-form navbar-right" role="form"
+							ng-show="!korisnik">
+							<form>
+								<div class="input-group">
+									<span class="input-group-addon"><i
+										class="glyphicon glyphicon-user"></i></span> <input id="username"
+										type="text" class="form-control" name="username" value=""
+										ng-Model="logovanje.korisnickoIme"
+										placeholder="Korisnicko ime" required>
+								</div>
+
+								<div class="input-group">
+									<span class="input-group-addon"><i
+										class="glyphicon glyphicon-lock"></i></span> <input id="password"
+										type="password" class="form-control" name="password" value=""
+										ng-Model="logovanje.lozinka" placeholder="Lozinka" required>
+								</div>
+								<button type="submit" ng-disabled="signin.$invalid"
+									class="btn btn-primary" ng-click="submitLogin()">Uloguj
+									se</button>
+							</form>
+						</div>
+
+					</div>
+				</div>
+			</nav>
+
+
+
+
+		</header>
+		<!-- MAIN CONTENT AND INJECTED VIEWS -->
+		<div id="main">
+			<div ng-view></div>
+		</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,5 @@
+package firma.model;
+
+public enum TipGreske {
+	PROCESIRAN, NELIKVIDAN_KORISNIK, NELIKVIDAN_NOSLIAC, NEVALIDAN_RACUN, NEPROCESIRAN;
+}
