@@ -57,12 +57,12 @@ public class FakturaController {
 	}
 	
 	@GetMapping(path ="/kreirajHTMLFakture/{id}")
-	public ResponseEntity<?> kreirajHTMLFakture(@PathVariable("id") Long id) throws JAXBException, IOException, TransformerException {
+	public ResponseEntity<?> kreirajHTMLFakture(@PathVariable("id") Long id) throws JAXBException, IOException, TransformerException, com.itextpdf.text.DocumentException {
 		return fakturaServis.kreirajHTMLFakture(id);
 	}
 	
 	@GetMapping(path ="/kreirajPDFFakture/{id}")
-	public ResponseEntity<?> kreirajPDFFakture(@PathVariable("id") Long id) throws JAXBException, IOException, DocumentException, TransformerException {
+	public ResponseEntity<?> kreirajPDFFakture(@PathVariable("id") Long id) throws JAXBException, IOException, DocumentException, TransformerException, com.itextpdf.text.DocumentException {
 		return fakturaServis.kreirajPDFFakture(id);
 	}
 }

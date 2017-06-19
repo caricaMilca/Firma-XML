@@ -25,9 +25,9 @@ public interface FakturaServis {
 
 	ResponseEntity<?> primiFakturu(Faktura f);
 
-	ResponseEntity<?> kreirajHTMLFakture(Long id) throws JAXBException, IOException, TransformerException;
+	ResponseEntity<?> kreirajHTMLFakture(Long id) throws JAXBException, IOException, TransformerException, com.itextpdf.text.DocumentException;
 
-	ResponseEntity<?> kreirajPDFFakture(Long id) throws DocumentException, IOException, JAXBException, TransformerException;
+	ResponseEntity<?> kreirajPDFFakture(Long id) throws DocumentException, IOException, JAXBException, TransformerException, com.itextpdf.text.DocumentException;
 	
 
 }

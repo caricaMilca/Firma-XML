@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<?xml-stylesheet type="text/xsl" href="fakturaHTML.xsl"?>
+<faktura>
+    <zaglavljeFakture>
+        <nazivDobavljaca>Ceks</nazivDobavljaca>
+        <adresaDobavljaca>Ceksa Ceksovskog 9</adresaDobavljaca>
+        <pibDobavljaca>1234512345</pibDobavljaca>
+        <nazivKupca>ceks1</nazivKupca>
+        <adresaKupca>Ceksa Ceksovog 10</adresaKupca>
+        <pibKupca>5432154321</pibKupca>
+        <datumRacuna>2017-06-19T19:27:11.735+02:00</datumRacuna>
+        <vrijednostRobe>30.00</vrijednostRobe>
+        <vrijednostUsluga>80.00</vrijednostUsluga>
+        <ukupnoRobaIUsluge>110.00</ukupnoRobaIUsluge>
+        <ukupanRabat>20.00</ukupanRabat>
+        <ukupanPorez>18.70</ukupanPorez>
+        <oznakaValute>rsd</oznakaValute>
+        <iznosZaUplatu>128.70</iznosZaUplatu>
+        <uplataNaRacun>123-1231231231231-23</uplataNaRacun>
+        <datumValute>2017-06-19T19:27:11.735+02:00</datumValute>
+    </zaglavljeFakture>
+</faktura>

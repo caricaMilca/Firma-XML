@@ -15,7 +15,7 @@ import javax.xml.bind.annotation.XmlSeeAlso;
 
 @XmlRootElement()
 @Entity
-@XmlSeeAlso({NalogZaPrenos.class, Banka.class})
+@XmlSeeAlso({Banka.class})
 public class MedjubankarskiPrenos {
 
 	@Id

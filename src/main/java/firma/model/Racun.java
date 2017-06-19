@@ -1,6 +1,5 @@
 package firma.model;
 
-import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -12,10 +11,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
-
-import org.springframework.format.annotation.DateTimeFormat;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -28,10 +23,6 @@ public class Racun {
 	
 	@Column(unique=true,nullable=false)
 	public String brojRacuna;
-	
-	@Temporal(TemporalType.DATE)
-	@DateTimeFormat(pattern = "mm.dd.yyyy")
-	public Date datumOtvaranja;
 	
 	@ManyToOne
 	public Firma firma;

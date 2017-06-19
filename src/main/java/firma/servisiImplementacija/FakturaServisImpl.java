@@ -74,6 +74,7 @@ public class FakturaServisImpl implements FakturaServis {
 		sf.umanjenoZaRabat = sf.vrijednost.add(sf.iznosRabata.negate());
 		sf.ukupanPorez = sf.umanjenoZaRabat.multiply(new BigDecimal(0.17));
 		f.stavke.add(sf);
+		sf.faktura = f;
 		return new ResponseEntity<Faktura>(fakturaRepozitorijum.save(f), HttpStatus.CREATED);
 	}
 
@@ -86,7 +87,7 @@ public class FakturaServisImpl implements FakturaServis {
 	public ResponseEntity<?> slanjeFakture(Long id) {
 		Faktura f = fakturaRepozitorijum.findOne(id);
 		Firma m = firmaRepozitorijum.findByPib(f.zaglavljeFakture.pibDobavljaca);
-		final String putanja = "https://localhost:" + m.port + "/faktura/primiFakturu";
+		final String putanja = "http://localhost:" + m.port + "/faktura/primiFakturu";
 		RestTemplate restTemplate = new RestTemplate();
 		restTemplate.postForObject(putanja, f, Faktura.class);
 		fakturaRepozitorijum.delete(id);
@@ -102,13 +103,13 @@ public class FakturaServisImpl implements FakturaServis {
 	@Override
 	public ResponseEntity<?> kreirajHTMLFakture(Long id) throws JAXBException, IOException, TransformerException {
 		Faktura f = fakturaRepozitorijum.findOne(id);
-		kreirajFajl(f);
+		File fajl= kreirajFajl(f);
 		TransformerFactory tFactory = TransformerFactory.newInstance();
 
-        Source xslDoc = new StreamSource("./files/fakturaHTML.xsl");
-        Source xmlDoc = new StreamSource("./files/faktura.xml");
+        Source xslDoc = new StreamSource("faktura.xsl");
+        Source xmlDoc = new StreamSource("faktura.xml");
 
-        String outputFileName = "./src/main/resources/static/faktura.html";
+        String outputFileName = "faktura.html";
         OutputStream htmlFile = new FileOutputStream(outputFileName);
 
         Transformer transformer = tFactory.newTransformer(xslDoc);
@@ -116,25 +117,27 @@ public class FakturaServisImpl implements FakturaServis {
 		return new ResponseEntity<>(HttpStatus.CREATED);
 	}
 
-	private void kreirajFajl(Faktura f) throws JAXBException, IOException {
-		File file = new File("./files/faktura.xml");
+	private File kreirajFajl(Faktura f) throws JAXBException, IOException{
+		File file = new File("faktura.xml");
 		JAXBContext jaxbContext = JAXBContext.newInstance(Faktura.class);
 		Marshaller jaxbMarshaller = jaxbContext.createMarshaller();
 		jaxbMarshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
 		jaxbMarshaller.marshal(f, file);
-		Path path = Paths.get("./files/faktura.xml");
+		Path path = Paths.get("faktura.xml");
 		List<String> lines = Files.readAllLines(path, StandardCharsets.UTF_8);
-		String stylesheet = "<?xml-stylesheet type=\"text/xsl\" href=\"fakturaHTML.xsl\"?>";
+		String stylesheet = "<?xml-stylesheet type=\"text/xsl\" href=\"faktura.xsl\"?>";
 		lines.add(1, stylesheet);
 		Files.write(path, lines, StandardCharsets.UTF_8);
+		
+		return file;
 	}
 
 	@Override
 	public ResponseEntity<?> kreirajPDFFakture(Long id) throws DocumentException, IOException, JAXBException, TransformerException {
 		kreirajHTMLFakture(id);
-        String url = new File("./src/main/resources/static/faktura.html").toURI().toURL().toString();
+        String url = new File("faktura.html").toURI().toURL().toString();
         System.out.println(""+url);
-        String HTML_TO_PDF = "./files/ConvertedFile.pdf";
+        String HTML_TO_PDF = "ConvertedFile.pdf";
         OutputStream os = new FileOutputStream(HTML_TO_PDF);       
         ITextRenderer renderer = new ITextRenderer();
         renderer.setDocument(url);      
