@@ -1,7 +1,7 @@
 <!doctype html>
 <html>
 <head>
-<title>Poslovna</title>
+<title>XML-WS</title>
 <meta http-equiv="Content-Type" content="text/html;charset=ISO-8859-1">
 <link href="css/bootstrap.min.css" rel="stylesheet">
 <link rel="stylesheet"
@@ -18,6 +18,8 @@
 <script type="text/javascript" src="js/app.js"></script>
 <script type="text/javascript" src="js/controllers.js"></script>
 <script type="text/javascript" src="js/service.js"></script>
+<script type="text/javascript" src="faktura/fakturaController.js"></script>
+<script type="text/javascript" src="faktura/fakturaService.js"></script>
 <script type="text/javascript" src="js/moment.min.js"></script>
 <script type="text/javascript" src="js/ng-notify.js"></script>
 </head>
@@ -44,35 +46,14 @@
 						<div ng-show="korisnik">
 							<ul class="nav navbar-nav">
 								<li class="dropdown"><a href="" class="dropdown-toggle"
-									data-toggle="dropdown" role="button" aria-expanded="false">Tabele
+									data-toggle="dropdown" role="button" aria-expanded="false">Fajlovi
 										<span class="caret"></span>
 								</a>
 									<ul class="dropdown-menu" role="menu">
-										<li><a href="/#!/Klijent/klijenti">Klijenti</a></li>
-										<li><a href="/#!/Drzava/sveDrzave">Drzave</a></li>
-										<li><a href="/#!/nm/svaNM">Naseljena mesta</a></li>
-										<li><a href="/#!/valuta/valute">Valute</a></li>
-										<li><a href="/#!/kursUValuti/kurs">Kurs u valuti</a></li>
-										<li><a href="/#!/kursnaLista/lista">Kursne liste</a></li>
-										<li><a href="/#!/Djelatnost/sveDjelatnosti">Djelatnosti</a></li>
-										<li><a href="/#!/VrstaPlacanja/vrstePlacanja">Vrste
-												placanja</a></li>
-										<li><a href="/#!/Racun/racuni">Racuni</a></li>
-										<li><a href="/#!/AnalitikaIzvoda/analitike">Analitika
-												izvoda</a></li>
-									</ul></li>
-								<li class="dropdown"><a href="" class="dropdown-toggle"
-									data-toggle="dropdown" role="button" aria-expanded="false">Kreiraj
-										nalog <span class="caret"></span>
-								</a>
-									<ul class="dropdown-menu" role="menu">
-										<li><a href="/#!/AnalitikaIzvoda/uplata" ng-click="tipTransakcije = 'UPLATA'">Uplata</a></li>
-										<li><a href="/#!/AnalitikaIzvoda/isplata" ng-click="tipTransakcije = 'ISPLATA'">Isplata</a></li>
-										<li><a href="/#!/AnalitikaIzvoda/transfer" ng-click="tipTransakcije = 'TRANSFER'">Transfer</a></li>
+										<li><a href="/#!/faktura/fakture">Fakture</a></li>
 									</ul></li>
 							</ul>
 							<div id="signin" class="navbar-form navbar-right" role="form">
-								<a href="#!/changePassword">Podesavanja</a>
 								<button type="submit" class="btn btn-primary"
 									ng-click="logout()">Izloguj se</button>
 
@@ -85,8 +66,8 @@
 									<span class="input-group-addon"><i
 										class="glyphicon glyphicon-user"></i></span> <input id="username"
 										type="text" class="form-control" name="username" value=""
-										ng-Model="logovanje.korisnickoIme"
-										placeholder="Korisnicko ime" required>
+										ng-Model="logovanje.port" placeholder="Korisnicko ime"
+										required>
 								</div>
 
 								<div class="input-group">

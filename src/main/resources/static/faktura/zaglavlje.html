@@ -1,0 +1,179 @@
+<div ng-controller="fakturaController" ng-init="preuzmiZaglavlja()">
+	<h1 id="header" class="page-header">Sve zaglavlja fakture</h1>
+	<p>
+	<div class="container">
+		<div class="table-responsive">
+			<table class="table">
+				<thead>
+					<tr>
+						<th>Naziv dobavljaca</th>
+						<th>Naziv kupca</th>
+						<th>Datum racuna</th>
+						<th>Ukupno roba i usluge</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="zaglavlje in svaZaglavlja track by zaglavlje.id"
+						ng-click="setSelectedZaglavlje(zaglavlje)"
+						ng-class="{'info' : selectedZaglavlje.id === zaglavlje.id}">
+						<td>{{zaglavlje.nazivDobavljaca}}</td>
+						<td>{{zaglavlje.nazivKupca}}</td>
+						<td>{{zaglavlje.datumRacuna}}</td>
+						<td>{{zaglavlje.ukupnoRobaIUsluge}}
+							{{zaglavlje.oznakaValute}}</td>
+						<td><button type="submit" ng-click="prikazi()"
+								ng-disabled="!selectedZaglavlje"
+								class="btn btn-primary btn-block">Dodaj stavku</button></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<br />
+	</div>
+	<div ng-if="zaglavlje">
+		<div class="container" id="razmak">
+			<form class="form-horizontal" role="blabla" name="myForm" novalidate>
+				<div class="form-group">
+					<label for="nazivKupca" class="col-sm-3 control-label">Naziv
+						kupca</label>
+					<div class="col-sm-9">
+						<input type="text" id="nazivKupca" class="form-control"
+							placeholder="Unesi naziv kupca" name="nazivKupca"
+							ng-Model="novoZaglavlje.nazivKupca" autofocus>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label for="adresaKupca" class="col-sm-3 control-label">Adresa
+						kupca</label>
+					<div class="col-sm-9">
+						<input type="text" id="adresaKupca" class="form-control"
+							placeholder="Unesi adresu kupca" name="adresaKupca"
+							ng-Model="novoZaglavlje.adresaKupca">
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label for="pibKupca" class="col-sm-3 control-label">PIB
+						kupca</label>
+					<div class="col-sm-9">
+						<input type="text" id="pibKupca" class="form-control"
+							placeholder="Unesi pib kupca" name="pibKupca"
+							ng-Model="novoZaglavlje.pibKupca">
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label for="oznakaValute" class="col-sm-3 control-label">Oznaka
+						valute</label>
+					<div class="col-sm-9">
+						<input type="text" id="oznakaValute" class="form-control"
+							placeholder="Unesi oznaku valute" name="oznakaValute"
+							ng-Model="novoZaglavlje.oznakaValute">
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label for="vrednostRobe" class="col-sm-3 control-label">Vrednost
+						robe</label>
+					<div class="col-sm-9">
+						<input type="text" id="vrednostRobe" class="form-control"
+							placeholder="Unesi vrednost robe" name="vrednostRobe"
+							ng-Model="novoZaglavlje.vrijednostRobe">
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label for="vrednostUsluga" class="col-sm-3 control-label">Vrednost
+						usluga</label>
+					<div class="col-sm-9">
+						<input type="text" id="vrednostUsluga" class="form-control"
+							placeholder="Unesi vrednost usluga" name="vrednostUsluga"
+							ng-Model="novoZaglavlje.vrijednostUsluga">
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label for="ukupanRabata" class="col-sm-3 control-label">Ukupan
+						rabat</label>
+					<div class="col-sm-9">
+						<input type="text" id="ukupanRabata" class="form-control"
+							placeholder="Unesi ukupan rabat" name="ukupanRabata"
+							ng-Model="novoZaglavlje.ukupanRabat">
+					</div>
+				</div>
+				<!-- /.form-group -->
+
+				<div class="form-group">
+					<div class="col-sm-9 col-sm-offset-3">
+						<button type="submit" ng-Click="dodajZaglavlje()"
+							class="btn btn-primary btn-block">Potvrdi</button>
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="col-sm-9 col-sm-offset-3">
+						<button type="submit" ng-Click="odustani()"
+							class="btn btn-primary btn-block">Odustani</button>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+	<div ng-if="!zaglavlje">
+		<div class="container" id="razmak">
+			<form class="form-horizontal" role="blabla" name="myForm2" novalidate>
+				<div class="form-group">
+					<label for="nazivRobeIliUsluge" class="col-sm-3 control-label">Naziv
+						robe ili usluga</label>
+					<div class="col-sm-9">
+						<input type="text" id="nazivRobeIliUsluge" class="form-control"
+							placeholder="Unesi naziv robe" name="nazivRobeIliUsluge"
+							ng-Model="novaStavka.nazivRobeIliUsluge">
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="kolicina" class="col-sm-3 control-label">Kolicina</label>
+					<div class="col-sm-9">
+						<input type="number" id="kolicina" class="form-control"
+							placeholder="Unesi kolicinu" name="kolicina"
+							ng-Model="novaStavka.kolicina">
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="jedinicaMere" class="col-sm-3 control-label">Jedinica
+						mere</label>
+					<div class="col-sm-9">
+						<input type="text" id="jedinicaMere" class="form-control"
+							placeholder="Unesi jedinicu mere" name="jedinicaMere"
+							ng-Model="novaStavka.jedinicaMjere">
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="jedinicnaCena" class="col-sm-3 control-label">Jedinicna
+						cena</label>
+					<div class="col-sm-9">
+						<input type="text" id="jedinicnaCena" class="form-control"
+							placeholder="Unesi jedinicnu cenu" name="jedinicnaCena"
+							ng-Model="novaStavka.jedinicnaCijena">
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="procenatRabata" class="col-sm-3 control-label">Procenat
+						rabata</label>
+					<div class="col-sm-9">
+						<input type="text" id="procenatRabata" class="form-control"
+							placeholder="Unesi procenat rabata" name="procenatRabata"
+							ng-Model="novaStavka.procenatRabata">
+					</div>
+				</div>
+				<div class="modal-footer" ng-controller="fakturaController">
+					<button type="button" class="btn btn-default"
+						ng-click="prikazi()">Odustani</button>
+					<button type="submit" ng-click="dodajStavku()"
+						class="btn btn-primary">Dodaj stavku</button>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+

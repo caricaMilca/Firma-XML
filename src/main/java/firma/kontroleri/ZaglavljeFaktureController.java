@@ -16,7 +16,7 @@ import firma.model.ZaglavljeFakture;
 import firma.servisi.ZaglavljeFaktureServis;
 
 @RestController
-@RequestMapping("/zaglavljeFakutre")
+@RequestMapping("/zaglavljeFakture")
 public class ZaglavljeFaktureController {
 
 	@Autowired

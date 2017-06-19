@@ -33,7 +33,8 @@ public class ZaglavljeFaktureServisImpl implements ZaglavljeFaktureServis {
 		zf.adresaDobavljaca = f.adresa;
 		zf.pibDobavljaca = f.pib;
 		zf.ukupnoRobaIUsluge = zf.vrijednostRobe.add(zf.vrijednostUsluga);		
-		BigDecimal vrijednostSRabatom = zf.ukupnoRobaIUsluge.add(zf.ukupanRabat.negate().multiply(zf.ukupnoRobaIUsluge.divide(new BigDecimal(100.0), 1)));
+		BigDecimal vrijednostSRabatom = new BigDecimal(500);
+		//BigDecimal vrijednostSRabatom = zf.ukupnoRobaIUsluge.add(zf.ukupanRabat.negate().multiply(zf.ukupnoRobaIUsluge.divide(new BigDecimal(100.0), 1)));
 		zf.ukupanPorez = vrijednostSRabatom.multiply(new BigDecimal(0.17));
 		zf.iznosZaUplatu = zf.ukupanPorez.add(vrijednostSRabatom);
 		return new ResponseEntity<ZaglavljeFakture>(zaglavljeFaktureRepozitorijum.save(zf),HttpStatus.CREATED);
