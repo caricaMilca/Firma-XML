@@ -1,23 +1,16 @@
 package firma.model;
 
 import java.util.Date;
-import java.util.HashSet;
-import java.util.Set;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 import org.springframework.format.annotation.DateTimeFormat;
-
-import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 public class DnevnoStanjeRacuna {
@@ -44,9 +37,9 @@ public class DnevnoStanjeRacuna {
 	@ManyToOne
 	public Racun racun;
 
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "dnevnoStanjeRacuna", cascade = CascadeType.ALL)
+	/*@OneToMany(fetch = FetchType.LAZY, mappedBy = "dnevnoStanjeRacuna", cascade = CascadeType.ALL)
 	@JsonIgnore
-	public Set<NalogZaPrenos> izvodi = new HashSet<NalogZaPrenos>();
+	public Set<NalogZaPrenos> izvodi = new HashSet<NalogZaPrenos>();*/
 
 	public DnevnoStanjeRacuna() {
 		super();

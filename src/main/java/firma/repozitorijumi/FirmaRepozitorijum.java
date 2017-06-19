@@ -8,4 +8,6 @@ public interface FirmaRepozitorijum extends JpaRepository<Firma, Long> {
 
 	Firma findByPortAndLozinka(String port, String lozinka);
 
+	Firma findByPib(String pibDobavljaca);
+
 }

@@ -24,6 +24,7 @@ public class Firma {
 
 	public String adresa;
 
+	@Column(unique = true, nullable = false)
 	public String pib;
 
 	@Column(unique = true, nullable = false)
