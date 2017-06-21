@@ -34,7 +34,7 @@ public class ZaglavljeFaktureServisImpl implements ZaglavljeFaktureServis {
 		zf.adresaDobavljaca = f.adresa;
 		zf.pibDobavljaca = f.pib;
 		zf.ukupnoRobaIUsluge = zf.vrijednostRobe.add(zf.vrijednostUsluga);
-		zf.datumRacuna =  new Date();
+		zf.datumRacuna =  (java.sql.Date) new Date();
 		zf.datumValute = zf.datumRacuna;
 		//BigDecimal vrijednostSRabatom = new BigDecimal(500);
 		BigDecimal vrijednostSRabatom =

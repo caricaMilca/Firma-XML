@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"
-    targetNamespace="http://nalog.com" xmlns:nzp="http://nalog.com">
-    <xs:element name="nalogRequest">
+    targetNamespace="http://firma/nalog" xmlns:nzp="http://firma/nalog">
+    <xs:element name="getNalogRequest">
         <xs:complexType>
             <xs:sequence>
                 <xs:element name="nalog" type="nzp:nalog" />
             </xs:sequence>
         </xs:complexType>
     </xs:element>
-    <xs:element name="nalogResponse">
+    <xs:element name="getNalogResponse">
         <xs:complexType>
             <xs:sequence>
                 <xs:element name="nalog" type="nzp:nalog" />

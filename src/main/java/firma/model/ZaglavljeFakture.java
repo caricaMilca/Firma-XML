@@ -1,7 +1,7 @@
 package firma.model;
 
 import java.math.BigDecimal;
-import java.util.Date;
+import java.sql.Date;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -14,10 +14,12 @@ import javax.persistence.OneToMany;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlSchemaType;
 import javax.xml.bind.annotation.XmlTransient;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import xmlTransformacije.Adapter1;
 
 
 @Entity
@@ -51,7 +53,7 @@ public class ZaglavljeFakture {
     public String brojRacuna;
     
     @XmlElement(required = true)
-    @XmlSchemaType(name = "datumRacuna")
+    @XmlJavaTypeAdapter(Adapter1.class)
     public Date datumRacuna;
     
    
@@ -80,7 +82,7 @@ public class ZaglavljeFakture {
     public String uplataNaRacun;
     
     @XmlElement(required = true)
-    @XmlSchemaType(name = "datumValute")
+    @XmlJavaTypeAdapter(Adapter1.class)
     public Date datumValute;
     
     @XmlTransient

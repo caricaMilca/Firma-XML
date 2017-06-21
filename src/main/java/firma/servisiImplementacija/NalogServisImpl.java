@@ -1,33 +1,58 @@
 package firma.servisiImplementacija;
 
+import java.math.BigDecimal;
 import java.math.BigInteger;
-import java.util.Date;
+import java.util.UUID;
 
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+import org.springframework.ws.client.core.WebServiceTemplate;
 
 import firma.model.Faktura;
 import firma.model.Firma;
+import firma.model.ZaglavljeFakture;
+import firma.nalog.GetNalogRequest;
 import firma.nalog.Nalog;
 import firma.repozitorijumi.FakturaRepozitorijum;
 import firma.servisi.NalogServis;
 
+@Service
+@Transactional
+@Component
 public class NalogServisImpl implements NalogServis {
+
+	@Autowired
+	HttpSession sesija;
 
 	@Autowired
 	FakturaRepozitorijum fakturaRepozitorijum;
 	
 	@Autowired
-	HttpSession sesija;
+	WebServiceTemplate webServiceTemplate;
 	
 	@Override
 	public ResponseEntity<?> posaljiNalog(Long id) {
-		Faktura f = fakturaRepozitorijum.findOne(id);
-		Firma r = (Firma) sesija.getAttribute("firma");
-		Nalog n = new Nalog("123", f.zaglavljeFakture.nazivKupca, "neka", r.naziv, f.zaglavljeFakture.uplataNaRacun, BigInteger.valueOf(97L), "11111111111111111111", "nekidokneodradimoracune", BigInteger.valueOf(97L), "22222222222222222222", f.zaglavljeFakture.iznosZaUplatu, f.zaglavljeFakture.oznakaValute, false);
-		
+		Faktura fak = fakturaRepozitorijum.findOne(id);
+		ZaglavljeFakture zf = fak.zaglavljeFakture;
+		Firma f = (Firma) sesija.getAttribute("firma");
+		String idPoruke = UUID.randomUUID().toString();
+		Nalog n = new Nalog(idPoruke, zf.nazivKupca, "svrha placanja", f.naziv, zf.datumRacuna, zf.datumValute,
+				f.racuni.iterator().next().brojRacuna, BigInteger.valueOf(97L), "11111111111111111111",
+				zf.uplataNaRacun, BigInteger.valueOf(97L), "2222222222222222222222", zf.iznosZaUplatu, zf.oznakaValute,
+				false);
+		if (n.getIznos().compareTo(BigDecimal.valueOf(250000L)) > 1)
+			n.setHitno(true);
+		GetNalogRequest nalogZahtjev = new GetNalogRequest();
+		nalogZahtjev.setNalog(n);
+
+		String uri = "http://localhost:" + f.port;
+		webServiceTemplate.setDefaultUri(uri);
+		webServiceTemplate.marshalSendAndReceive(nalogZahtjev);
 		return null;
 	}
 

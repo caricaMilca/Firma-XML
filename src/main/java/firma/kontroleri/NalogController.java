@@ -1,4 +1,4 @@
-package firma.nalog;
+package firma.kontroleri;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -16,8 +16,8 @@ public class NalogController {
 	@Autowired
 	NalogServis nalogServis;
 	
-	@GetMapping(path ="/posaljiNalog/{idFakture}")
-	public ResponseEntity<?> posaljiNalog(@PathVariable("idFakture") Long id) {
+	@GetMapping(path ="/posaljiNalog/{idNaloga}")
+	public ResponseEntity<?> login(@PathVariable("idNaloga") Long id) {
 		return nalogServis.posaljiNalog(id);
 	}
 }

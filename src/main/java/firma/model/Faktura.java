@@ -27,7 +27,6 @@ public class Faktura {
 	@GeneratedValue
 	public Long id;
 
-	@XmlTransient
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "faktura", cascade = CascadeType.ALL)
 	@JsonIgnore
 	public Set<StavkaFakture> stavke = new HashSet<StavkaFakture>();

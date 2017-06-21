@@ -9,26 +9,32 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import firma.model.Firma;
+import firma.repozitorijumi.FakturaRepozitorijum;
 import firma.repozitorijumi.FirmaRepozitorijum;
 import firma.servisi.FirmaServis;
 
 @Service
-@Transactional	
+@Transactional
 public class FirmaServisImpl implements FirmaServis {
 
 	@Autowired
 	FirmaRepozitorijum firmaRepozitorijum;
-	
+
 	@Autowired
 	HttpSession sesija;
-	
+
+	@Autowired
+	FakturaRepozitorijum fakturaRepozitorijum;
+
 	@Override
 	public ResponseEntity<Firma> login(String port, String lozinka) {
 		Firma f = firmaRepozitorijum.findByPortAndLozinka(port, lozinka);
-		if(f == null)
+		if (f == null)
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 		sesija.setAttribute("firma", f);
 		return new ResponseEntity<Firma>(f, HttpStatus.OK);
 	}
+
+	
 
 }
