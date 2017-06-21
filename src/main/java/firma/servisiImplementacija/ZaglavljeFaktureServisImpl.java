@@ -1,7 +1,10 @@
 package firma.servisiImplementacija;
 
 import java.math.BigDecimal;
-import java.util.Date;
+import java.sql.Date;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -34,7 +37,7 @@ public class ZaglavljeFaktureServisImpl implements ZaglavljeFaktureServis {
 		zf.adresaDobavljaca = f.adresa;
 		zf.pibDobavljaca = f.pib;
 		zf.ukupnoRobaIUsluge = zf.vrijednostRobe.add(zf.vrijednostUsluga);
-		zf.datumRacuna =  (java.sql.Date) new Date();
+		zf.datumRacuna =  new Date(Calendar.getInstance().getTimeInMillis());
 		zf.datumValute = zf.datumRacuna;
 		//BigDecimal vrijednostSRabatom = new BigDecimal(500);
 		BigDecimal vrijednostSRabatom =

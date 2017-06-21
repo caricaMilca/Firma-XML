@@ -8,7 +8,6 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ws.client.core.WebServiceTemplate;
@@ -23,7 +22,6 @@ import firma.servisi.NalogServis;
 
 @Service
 @Transactional
-@Component
 public class NalogServisImpl implements NalogServis {
 
 	@Autowired
@@ -50,7 +48,8 @@ public class NalogServisImpl implements NalogServis {
 		GetNalogRequest nalogZahtjev = new GetNalogRequest();
 		nalogZahtjev.setNalog(n);
 
-		String uri = "http://localhost:" + f.port;
+		String uri = "http://localhost:" + f.racuni.iterator().next().banka.port + "/ws";
+		System.out.println(uri + " aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
 		webServiceTemplate.setDefaultUri(uri);
 		webServiceTemplate.marshalSendAndReceive(nalogZahtjev);
 		return null;

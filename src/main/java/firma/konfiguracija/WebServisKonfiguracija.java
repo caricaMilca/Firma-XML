@@ -46,7 +46,7 @@ public class WebServisKonfiguracija extends WsConfigurerAdapter {
 		DefaultWsdl11Definition wsdl11Definition = new DefaultWsdl11Definition();
 		wsdl11Definition.setPortTypeName("firmaPort");
 		wsdl11Definition.setLocationUri("/ws");
-		wsdl11Definition.setTargetNamespace("http://firma/nalog/ws/");
+		wsdl11Definition.setTargetNamespace("http://firma/ws/");
 		wsdl11Definition.setSchemaCollection(schemaCollection);
 		return wsdl11Definition;
 	}
@@ -73,7 +73,7 @@ public class WebServisKonfiguracija extends WsConfigurerAdapter {
 		WebServiceTemplate webServiceTemplate = new WebServiceTemplate();
 		webServiceTemplate.setMarshaller(jaxb2Marshaller());
 		webServiceTemplate.setUnmarshaller(jaxb2Marshaller());
-		webServiceTemplate.setDefaultUri("http://localhost:8090/ws");
+		webServiceTemplate.setDefaultUri("http://localhost:9090/ws");
 
 		return webServiceTemplate;
 	}

@@ -37,7 +37,7 @@ public class Firma {
 	
 	public String lozinka;
 
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "firma", cascade = CascadeType.ALL)
+	@OneToMany(fetch = FetchType.EAGER, mappedBy = "firma", cascade = CascadeType.ALL)
 	@JsonIgnore
 	public Set<Racun> racuni = new HashSet<Racun>();
 

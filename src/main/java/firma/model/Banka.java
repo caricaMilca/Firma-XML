@@ -33,10 +33,12 @@ public class Banka {
 
 	public String naziv;
 	
+	public String lozinka;
+	
 	public String port;
 
 	@XmlTransient
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "banka", cascade = CascadeType.ALL)
+	@OneToMany(fetch = FetchType.EAGER, mappedBy = "banka", cascade = CascadeType.ALL)
 	@JsonIgnore
 	public Set<Racun> racuni = new HashSet<Racun>();
 
