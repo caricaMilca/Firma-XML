@@ -1,6 +1,6 @@
-insert into Banka(banka3kod, banka4kod, swift_kod, naziv, port, lozinka) values ('123', 'BANK', 'BANKRS22', 'Banka_1', '8081', 'pass');
-insert into Banka(banka3kod, banka4kod, swift_kod, naziv, port, lozinka) values ('124', 'BKKK', 'BKKKRS22', 'Banka_2', '8082', 'pass');
-insert into Banka(banka3kod, banka4kod, swift_kod, naziv, port, lozinka) values ('125', 'BAKK', 'BAKKRS22', 'Banka_3', '8083', 'pass');
+insert into Banka(banka3kod, banka4kod, swift_kod, naziv, port, lozinka, tip) values ('123', 'BANK', 'BANKRS22', 'Banka_1', '8081', 'pass', 'OBICNA');
+insert into Banka(banka3kod, banka4kod, swift_kod, naziv, port, lozinka, tip) values ('124', 'BKKK', 'BKKKRS22', 'Banka_2', '8082', 'pass', 'OBICNA');
+insert into Banka(banka3kod, banka4kod, swift_kod, naziv, port, lozinka, tip) values ('125', 'BAKK', 'BAKKRS22', 'Banka_3', '8083', 'pass', 'NARODNA');
 
 insert into Firma(naziv, adresa, pib, port, lozinka) values ('Ceks', 'Ceksa Ceksovskog 9', '1234512345', '9091', 'pass');
 insert into Firma(naziv, adresa, pib, port, lozinka) values ('Ceks1', 'Ceksa Ceksovskog 10', '5432154321', '9092', 'pass');
