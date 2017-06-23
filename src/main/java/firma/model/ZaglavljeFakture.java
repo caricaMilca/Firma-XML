@@ -86,7 +86,7 @@ public class ZaglavljeFakture {
     public Date datumValute;
     
     @XmlTransient
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "zaglavljeFakture", cascade = CascadeType.ALL)
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "zaglavljeFakture", cascade = CascadeType.ALL,orphanRemoval = true)
 	@JsonIgnore
 	public Set<Faktura> fakture = new HashSet<Faktura>();
 

@@ -2,8 +2,6 @@ package firma.servisiImplementacija;
 
 import java.math.BigDecimal;
 import java.sql.Date;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.List;
 

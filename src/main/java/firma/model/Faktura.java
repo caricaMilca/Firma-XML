@@ -27,7 +27,7 @@ public class Faktura {
 	@GeneratedValue
 	public Long id;
 
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "faktura", cascade = CascadeType.ALL)
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "faktura", cascade = CascadeType.ALL, orphanRemoval = true)
 	@JsonIgnore
 	public Set<StavkaFakture> stavke = new HashSet<StavkaFakture>();
 
