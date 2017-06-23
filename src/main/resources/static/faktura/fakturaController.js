@@ -123,5 +123,11 @@ app.controller('fakturaController', [
 						.then(function(response) {
 						});
 			}
+			
+			$scope.posaljiFakturu = function() {
+				fakturaService.posaljiFakturu($rootScope.selectedZaglavlje.id)
+						.then(function(response) {
+						});
+			}
 
 		} ]);

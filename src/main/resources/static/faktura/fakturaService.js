@@ -28,6 +28,10 @@ app.factory('fakturaService', function fakturaService($http) {
 		return $http.get("/faktura/kreirajPDFFakture/" + zaglavljeId);
 	}
 
+	fakturaService.posaljiFakturu = function(zaglavljeId) {
+		return $http.post("/faktura/slanjeFakture/" + zaglavljeId);
+	}
+	
 	return fakturaService;
 
 });
