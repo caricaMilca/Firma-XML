@@ -86,8 +86,9 @@ public class FakturaServisImpl implements FakturaServis {
 
 	@Override
 	public ResponseEntity<?> slanjeFakture(Long id) {
-		Faktura f = fakturaRepozitorijum.findOne(id);
-		ZaglavljeFakture zf = zaglavljeFaktureRepozitorijum.findOne(f.zaglavljeFakture.id);
+		ZaglavljeFakture zf = zaglavljeFaktureRepozitorijum.findOne(id);
+		Faktura f = fakturaRepozitorijum.findByZaglavljeFakture(zf);
+		//ZaglavljeFakture zf = zaglavljeFaktureRepozitorijum.findOne(f.zaglavljeFakture.id);
 		Firma m = firmaRepozitorijum.findByPib(f.zaglavljeFakture.pibKupca);
 		final String putanja = "http://localhost:" + m.port + "/faktura/primiFakturu";
 		RestTemplate restTemplate = new RestTemplate();
@@ -99,8 +100,12 @@ public class FakturaServisImpl implements FakturaServis {
 
 	@Override
 	public ResponseEntity<?> primiFakturu(Faktura f) {
+		System.out.println(f.stavke.size() + "    aaaaaaaaaaaaaaaaaaaaaa");
 		zaglavljeFaktureRepozitorijum.save(f.zaglavljeFakture);
-		fakturaRepozitorijum.save(f);
+		Faktura fa = fakturaRepozitorijum.save(f);
+		while(f.stavke.iterator().hasNext()){
+			f.stavke.iterator().next().faktura = fa;
+		}
 		return new ResponseEntity<>(HttpStatus.ACCEPTED);
 	}
 
