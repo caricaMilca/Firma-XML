@@ -28,41 +28,42 @@ public class FakturaController {
 
 	@Autowired
 	FakturaServis fakturaServis;
-	
-	
+
 	@PostMapping(path = "/registracijaFakture/{idZaglavlja}")
-	public ResponseEntity<Faktura> registracijaFakture(@Valid @RequestBody StavkaFakture sf , @PathVariable("idZaglavlja") Long id) {
+	public ResponseEntity<Faktura> registracijaFakture(@Valid @RequestBody StavkaFakture sf,
+			@PathVariable("idZaglavlja") Long id) {
 		return fakturaServis.registracijaFakture(sf, id);
 	}
-	
-	
-	@GetMapping(path ="/ulazneFakture")
+
+	@GetMapping(path = "/ulazneFakture")
 	public ResponseEntity<List<Faktura>> ulazneFakture() {
 		return fakturaServis.ulazneFakture();
 	}
-	
-	@GetMapping(path ="/sveFakture")
+
+	@GetMapping(path = "/sveFakture")
 	public ResponseEntity<List<Faktura>> sveFakture() {
 		return fakturaServis.sveFakture();
 	}
-	
+
 	@PostMapping(path = "/slanjeFakture/{id}")
 	public ResponseEntity<?> slanjeFakture(@PathVariable("id") Long id) {
 		return fakturaServis.slanjeFakture(id);
 	}
-	
+
 	@PostMapping(path = "/primiFakturu")
 	public ResponseEntity<?> primiFakturu(@Valid @RequestBody Faktura f) {
 		return fakturaServis.primiFakturu(f);
 	}
-	
-	@GetMapping(path ="/kreirajHTMLFakture/{id}")
-	public ResponseEntity<?> kreirajHTMLFakture(@PathVariable("id") Long id) throws JAXBException, IOException, TransformerException, com.itextpdf.text.DocumentException {
+
+	@GetMapping(path = "/kreirajHTMLFakture/{id}")
+	public ResponseEntity<?> kreirajHTMLFakture(@PathVariable("id") Long id)
+			throws JAXBException, IOException, TransformerException {
 		return fakturaServis.kreirajHTMLFakture(id);
 	}
-	
-	@GetMapping(path ="/kreirajPDFFakture/{id}")
-	public ResponseEntity<?> kreirajPDFFakture(@PathVariable("id") Long id) throws JAXBException, IOException, DocumentException, TransformerException, com.itextpdf.text.DocumentException {
+
+	@GetMapping(path = "/kreirajPDFFakture/{id}")
+	public ResponseEntity<?> kreirajPDFFakture(@PathVariable("id") Long id)
+			throws JAXBException, IOException, DocumentException, TransformerException {
 		return fakturaServis.kreirajPDFFakture(id);
 	}
 }

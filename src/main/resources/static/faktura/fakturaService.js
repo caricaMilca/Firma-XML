@@ -6,14 +6,28 @@ app.factory('fakturaService', function fakturaService($http) {
 		return $http.get("/zaglavljeFakture/svaZaglavljaFakture");
 	}
 
+	fakturaService.preuzmiStavke = function(zaglavljeId) {
+		return $http.get("/stavkaFaktura/sveStavkeFakture/" + zaglavljeId);
+	}
+
 	fakturaService.dodajZaglavlje = function(zaglavljeFakture) {
-		return $http.post("/zaglavljeFakture/registracijaZaglavljaFakture", zaglavljeFakture);
+		return $http.post("/zaglavljeFakture/registracijaZaglavljaFakture",
+				zaglavljeFakture);
 	}
-	
+
 	fakturaService.dodajStavku = function(zaglavljeId, stavka) {
-		return $http.post("/faktura/registracijaFakture/" + zaglavljeId, stavka);
+		return $http
+				.post("/faktura/registracijaFakture/" + zaglavljeId, stavka);
 	}
-	
+
+	fakturaService.kreirajHTML = function(zaglavljeId) {
+		return $http.get("/faktura/kreirajHTMLFakture/" + zaglavljeId);
+	}
+
+	fakturaService.kreirajPDF = function(zaglavljeId) {
+		return $http.get("/faktura/kreirajPDFFakture/" + zaglavljeId);
+	}
+
 	return fakturaService;
 
 });

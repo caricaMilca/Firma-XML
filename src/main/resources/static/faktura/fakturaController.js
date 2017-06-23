@@ -36,12 +36,7 @@ app.controller('fakturaController', [
 		'fakturaService',
 		function($rootScope, $scope, $location, ngNotify, fakturaService) {
 
-			$scope.zaglavlje = true;
-			
-
-			$scope.prikazi = function() {
-				$scope.zaglavlje = false;
-			}
+			$scope.novoZaglavlje = {};
 
 			$scope.preuzmiZaglavlja = function() {
 				fakturaService.preuzmiZaglavlja().then(function(response) {
@@ -50,8 +45,16 @@ app.controller('fakturaController', [
 					}
 				});
 			}
+			
+			$scope.preuzmiStavke = function(id) {
+				fakturaService.preuzmiStavke(id).then(function(response) {
+					if (response.data) {
+						$rootScope.sveStavke = response.data;
+					}
+				});
+			}
 
-			function preuzmiZaglavlja() {
+			$scope.init = function() {
 				$scope.preuzmiZaglavlja();
 			}
 
@@ -71,39 +74,54 @@ app.controller('fakturaController', [
 			}
 
 			$scope.odustani = function() {
-				$scope.selectedZaglavlje = null;
+				$rootScope.selectedZaglavlje = null;
 				$scope.novoZaglavlje = null;
 				$scope.show = null;
 				refresh();
 			}
 
-			$scope.odustani2 = function() {
-				$scope.zaglavlje = true;
-			}
-
 			function refresh() {
 				$scope.preuzmiZaglavlja();
 				$scope.novoZaglavlje = null;
-				$scope.selectedZaglavlje = null;
+				$rootScope.selectedZaglavlje = null;
 			}
 
 			$scope.setSelectedZaglavlje = function(selected) {
-				$scope.selectedZaglavlje = selected;
-				$scope.show = 10;
+				$rootScope.selectedZaglavlje = selected;
 				$scope.novoZaglavlje = angular.copy(selected);
-
 			}
 
 			$scope.dodajStavku = function() {
-				fakturaService.dodajStavku($scope.selectedZaglavlje.id,
+				fakturaService.dodajStavku($rootScope.selectedZaglavlje.id,
 						$scope.novaStavka).then(function(response) {
 					if (response.data) {
 						ngNotify.set('Uspesno dodavanje stavke', {
 							type : 'success'
 						});
+						$location.path('/faktura/fakture');
 					}
-					$scope.zaglavlje = true;
 				});
+			}
+
+			$scope.posaljiNaStavku = function() {
+				$scope.preuzmiStavke($rootScope.selectedZaglavlje.id);
+				$location.path('/faktura/stavka');
+			}
+
+			$scope.odustaniOdStavke = function() {
+				$location.path('/faktura/fakture');
+			}
+
+			$scope.kreirajHTML = function() {
+				fakturaService.kreirajHTML($rootScope.selectedZaglavlje.id)
+						.then(function(response) {
+						});
+			}
+
+			$scope.kreirajPDF = function() {
+				fakturaService.kreirajPDF($rootScope.selectedZaglavlje.id)
+						.then(function(response) {
+						});
 			}
 
 		} ]);

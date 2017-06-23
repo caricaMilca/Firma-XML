@@ -30,7 +30,7 @@ public class Faktura {
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "faktura", cascade = CascadeType.ALL)
 	@JsonIgnore
 	public Set<StavkaFakture> stavke = new HashSet<StavkaFakture>();
-	
+
 	@ManyToOne
 	public ZaglavljeFakture zaglavljeFakture;
 
@@ -38,6 +38,5 @@ public class Faktura {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	
-	
+
 }

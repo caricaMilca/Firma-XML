@@ -9,5 +9,8 @@ app.config(function($routeProvider, $locationProvider) {
 	}).when('/faktura/fakture', {
 		templateUrl: '/faktura/zaglavlje.html',
 		controller: 'fakturaController'
+	}).when('/faktura/stavka', {
+		templateUrl: '/faktura/novaStavka.html',
+		controller: 'fakturaController'
 	})
 });

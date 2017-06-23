@@ -20,40 +20,41 @@ public class StavkaFakture {
 	@Id
 	@GeneratedValue
 	public Long id;
-	
-	@XmlElement(required = true)
-    public BigInteger redniBroj;
-	
-    @XmlElement(required = true)
-    public String nazivRobeIliUsluge;
-    
-    @XmlElement(required = true)
-    public BigDecimal kolicina;
-    
-    @XmlElement(required = true)
-    public String jedinicaMjere;
-    
-    @XmlElement(required = true)
-    public BigDecimal jedinicnaCijena;
-    
-    @XmlElement(required = true)
-    public BigDecimal vrijednost;
-    
-    @XmlElement(required = true)
-    public BigDecimal procenatRabata;
-    
-    @XmlElement(required = true)
-    public BigDecimal iznosRabata;
-    
-    @XmlElement(required = true)
-    public BigDecimal umanjenoZaRabat;
-    
-    @XmlElement(required = true)
-    public BigDecimal ukupanPorez;
 
-    @ManyToOne
+	@XmlElement(required = true)
+	public BigInteger redniBroj;
+
+	@XmlElement(required = true)
+	public String nazivRobeIliUsluge;
+
+	@XmlElement(required = true)
+	public BigDecimal kolicina;
+
+	@XmlElement(required = true)
+	public String jedinicaMjere;
+
+	@XmlElement(required = true)
+	public BigDecimal jedinicnaCijena;
+
+	@XmlElement(required = true)
+	public BigDecimal vrijednost;
+
+	@XmlElement(required = true)
+	public BigDecimal procenatRabata;
+
+	@XmlElement(required = true)
+	public BigDecimal iznosRabata;
+
+	@XmlElement(required = true)
+	public BigDecimal umanjenoZaRabat;
+
+	@XmlElement(required = true)
+	public BigDecimal ukupanPorez;
+
+	@XmlTransient
+	@ManyToOne
 	public Faktura faktura;
-    
+
 	public StavkaFakture() {
 		super();
 		// TODO Auto-generated constructor stub
@@ -74,8 +75,5 @@ public class StavkaFakture {
 		this.umanjenoZaRabat = umanjenoZaRabat;
 		this.ukupanPorez = ukupanPorez;
 	}
-	
-	
-    
-    
+
 }

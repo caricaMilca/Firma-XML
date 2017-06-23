@@ -1,22 +1,32 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <?xml-stylesheet type="text/xsl" href="faktura.xsl"?>
 <faktura>
+    <stavke>
+        <nazivRobeIliUsluge>lk;j</nazivRobeIliUsluge>
+        <kolicina>324.00</kolicina>
+        <jedinicaMjere>kj</jedinicaMjere>
+        <jedinicnaCijena>432.00</jedinicnaCijena>
+        <vrijednost>139968.00</vrijednost>
+        <procenatRabata>43.00</procenatRabata>
+        <iznosRabata>60186.24</iznosRabata>
+        <umanjenoZaRabat>79781.76</umanjenoZaRabat>
+        <ukupanPorez>13562.90</ukupanPorez>
+    </stavke>
     <zaglavljeFakture>
         <nazivDobavljaca>Ceks</nazivDobavljaca>
         <adresaDobavljaca>Ceksa Ceksovskog 9</adresaDobavljaca>
         <pibDobavljaca>1234512345</pibDobavljaca>
-        <nazivKupca>ceks1</nazivKupca>
-        <adresaKupca>Ceksa Ceksovog 10</adresaKupca>
-        <pibKupca>5432154321</pibKupca>
-        <datumRacuna>2017-06-20T10:59:15.395+02:00</datumRacuna>
-        <vrijednostRobe>30.00</vrijednostRobe>
-        <vrijednostUsluga>80.00</vrijednostUsluga>
-        <ukupnoRobaIUsluge>110.00</ukupnoRobaIUsluge>
-        <ukupanRabat>20.00</ukupanRabat>
-        <ukupanPorez>18.70</ukupanPorez>
-        <oznakaValute>rsd</oznakaValute>
-        <iznosZaUplatu>128.70</iznosZaUplatu>
-        <uplataNaRacun>123-1231231231231-23</uplataNaRacun>
-        <datumValute>2017-06-20T10:59:15.395+02:00</datumValute>
+        <nazivKupca>kjljlk</nazivKupca>
+        <adresaKupca>lkjlkj</adresaKupca>
+        <pibKupca>423</pibKupca>
+        <datumRacuna>2017-06-23</datumRacuna>
+        <vrijednostRobe>324.00</vrijednostRobe>
+        <vrijednostUsluga>432.00</vrijednostUsluga>
+        <ukupnoRobaIUsluge>756.00</ukupnoRobaIUsluge>
+        <ukupanRabat>3.00</ukupanRabat>
+        <ukupanPorez>128.52</ukupanPorez>
+        <oznakaValute>4k</oznakaValute>
+        <iznosZaUplatu>884.52</iznosZaUplatu>
+        <datumValute>2017-06-23</datumValute>
     </zaglavljeFakture>
 </faktura>

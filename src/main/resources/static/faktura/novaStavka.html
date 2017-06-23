@@ -1,0 +1,91 @@
+<div ng-controller="fakturaController">
+	<h1 id="header" class="page-header">Sve stavke fakture</h1>
+	<p>
+	<div class="container">
+		<div class="table-responsive">
+			<table class="table">
+				<thead>
+					<tr>
+						<th>Naziv robe ili usluge</th>
+						<th>Kolicina</th>
+						<th>Jedinica mere</th>
+						<th>Jedinicna cena</th>
+						<th>Procenat rabata</th>
+						<th>Iznos rabata</th>
+						<th>Umanjeno za rabat</th>
+						<th>Ukupan porez</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="stavka in sveStavke track by stavka.id"
+						ng-click="setSelectedStavka(stavka)"
+						ng-class="{'info' : selectedStavka.id === stavka.id}">
+						<td>{{stavka.nazivRobeIliUsluge}}</td>
+						<td>{{stavka.kolicina}}</td>
+						<td>{{stavka.jedinicaMjere}}</td>
+						<td>{{stavka.jedicnaCijena}}</td>
+						<td>{{stavka.procenatRabata}}</td>
+						<td>{{stavka.iznosRabata}}</td>
+						<td>{{stavka.umanjenoZaRabat}}</td>
+						<td>{{stavka.ukupanPorez}}</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<br />
+	</div>
+	<div class="container" id="razmak">
+		<form class="form-horizontal" role="blabla" name="myForm2" novalidate>
+			<div class="form-group">
+				<label for="nazivRobeIliUsluge" class="col-sm-3 control-label">Naziv
+					robe ili usluga</label>
+				<div class="col-sm-9">
+					<input type="text" id="nazivRobeIliUsluge" class="form-control"
+						placeholder="Unesi naziv robe" name="nazivRobeIliUsluge"
+						ng-Model="novaStavka.nazivRobeIliUsluge">
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="kolicina" class="col-sm-3 control-label">Kolicina</label>
+				<div class="col-sm-9">
+					<input type="number" id="kolicina" class="form-control"
+						placeholder="Unesi kolicinu" name="kolicina"
+						ng-Model="novaStavka.kolicina">
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="jedinicaMere" class="col-sm-3 control-label">Jedinica
+					mere</label>
+				<div class="col-sm-9">
+					<input type="text" id="jedinicaMere" class="form-control"
+						placeholder="Unesi jedinicu mere" name="jedinicaMere"
+						ng-Model="novaStavka.jedinicaMjere">
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="jedinicnaCena" class="col-sm-3 control-label">Jedinicna
+					cena</label>
+				<div class="col-sm-9">
+					<input type="number" id="jedinicnaCena" class="form-control"
+						placeholder="Unesi jedinicnu cenu" name="jedinicnaCena"
+						ng-Model="novaStavka.jedinicnaCijena">
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="procenatRabata" class="col-sm-3 control-label">Procenat
+					rabata</label>
+				<div class="col-sm-9">
+					<input type="number" id="procenatRabata" class="form-control"
+						placeholder="Unesi procenat rabata" name="procenatRabata"
+						ng-Model="novaStavka.procenatRabata">
+				</div>
+			</div>
+			<div class="modal-footer" ng-controller="fakturaController">
+				<button type="button" class="btn btn-default"
+					ng-click="odustaniOdStavke()">Odustani</button>
+				<button type="submit" ng-click="dodajStavku()"
+					class="btn btn-primary">Dodaj stavku</button>
+			</div>
+		</form>
+	</div>
+</div>
