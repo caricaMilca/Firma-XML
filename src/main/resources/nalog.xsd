@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"
-    targetNamespace="http://firma/nalog" xmlns:nzp="http://firma/nalog">
+    targetNamespace="http://paket/nalog" xmlns:nzp="http://paket/nalog" xmlns:xsT="http://paket/tipovi">
+        <xs:import namespace="http://paket/tipovi"
+		schemaLocation="tipovi.xsd" />
     <xs:element name="getNalogRequest">
         <xs:complexType>
             <xs:sequence>
@@ -17,76 +19,21 @@
     </xs:element>
     <xs:complexType name="nalog">
         <xs:sequence>
-            <xs:element name="idPoruke" type="nzp:slovo50" />
-            <xs:element name="duznik" type="nzp:slovo255" />
-            <xs:element name="svrhaPlacanja" type="nzp:slovo255" />
-            <xs:element name="primalac" type="nzp:slovo255" />
+            <xs:element name="idPoruke" type="xsT:slovo50" />
+            <xs:element name="duznik" type="xsT:slovo255" />
+            <xs:element name="svrhaPlacanja" type="xsT:slovo255" />
+            <xs:element name="primalac" type="xsT:slovo255" />
             <xs:element name="datumNaloga" type="xs:date" />
             <xs:element name="datumValute" type="xs:date" />
-            <xs:element name="racunDuznika" type="nzp:slovo18" />
-            <xs:element name="modelZaduzenja" type="nzp:broj2" />
-            <xs:element name="pozivNaBrojZaduzenja" type="nzp:slovo20" />
-            <xs:element name="racunPrimaoca" type="nzp:slovo18" />
-            <xs:element name="modelOdobrenja" type="nzp:broj2" />
-            <xs:element name="pozivNaBrojOdobrenja" type="nzp:slovo20" />
-            <xs:element name="iznos" type="nzp:decimalni5-2" />
-            <xs:element name="oznakaValute" type="nzp:slovo3" />
+            <xs:element name="racunDuznika" type="xsT:slovo18" />
+            <xs:element name="modelZaduzenja" type="xsT:broj2" />
+            <xs:element name="pozivNaBrojZaduzenja" type="xsT:slovo20" />
+            <xs:element name="racunPrimaoca" type="xsT:slovo18" />
+            <xs:element name="modelOdobrenja" type="xsT:broj2" />
+            <xs:element name="pozivNaBrojOdobrenja" type="xsT:slovo20" />
+            <xs:element name="iznos" type="xsT:decimalni5-2" />
+            <xs:element name="oznakaValute" type="xsT:slovo3" />
             <xs:element name="hitno" type="xs:boolean" />
         </xs:sequence>
     </xs:complexType>
-    
-    <xs:simpleType name="broj2">
-        <xs:restriction base="xs:integer">
-            <xs:pattern value="\d{2}" />
-        </xs:restriction>
-    </xs:simpleType>
-    
-    <xs:simpleType name="broj20">
-        <xs:restriction base="xs:integer">
-            <xs:pattern value="\d{20}" />
-        </xs:restriction>
-    </xs:simpleType>
-    
-    <xs:simpleType name="decimalni5-2">
-        <xs:restriction base="xs:decimal">
-            <xs:totalDigits value="5" />
-            <xs:fractionDigits value="2" />
-        </xs:restriction>
-    </xs:simpleType>
-    
-    <xs:simpleType name="slovo3">
-        <xs:restriction base="xs:string">
-            <xs:minLength value="3" />
-            <xs:maxLength value="3" />
-        </xs:restriction>
-    </xs:simpleType>
-    
-    <xs:simpleType name="slovo18">
-        <xs:restriction base="xs:string">
-            <xs:minLength value="18" />
-            <xs:maxLength value="18" />
-        </xs:restriction>
-    </xs:simpleType>
-    
-    <xs:simpleType name="slovo20">
-        <xs:restriction base="xs:string">
-            <xs:minLength value="20" />
-            <xs:maxLength value="20" />
-        </xs:restriction>
-    </xs:simpleType>
-    
-    <xs:simpleType name="slovo50">
-        <xs:restriction base="xs:string">
-            <xs:minLength value="1" />
-            <xs:maxLength value="50" />
-        </xs:restriction>
-    </xs:simpleType>
-    
-    <xs:simpleType name="slovo255">
-        <xs:restriction base="xs:string">
-            <xs:minLength value="1" />
-            <xs:maxLength value="255" />
-        </xs:restriction>
-    </xs:simpleType>
-    
 </xs:schema>

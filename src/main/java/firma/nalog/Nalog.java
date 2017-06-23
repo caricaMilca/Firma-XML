@@ -32,20 +32,20 @@ import xmlTransformacije.Adapter1;
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="idPoruke" type="{http://firma/nalog}slovo50"/>
- *         &lt;element name="duznik" type="{http://firma/nalog}slovo255"/>
- *         &lt;element name="svrhaPlacanja" type="{http://firma/nalog}slovo255"/>
- *         &lt;element name="primalac" type="{http://firma/nalog}slovo255"/>
+ *         &lt;element name="idPoruke" type="{http://paket/tipovi}slovo50"/>
+ *         &lt;element name="duznik" type="{http://paket/tipovi}slovo255"/>
+ *         &lt;element name="svrhaPlacanja" type="{http://paket/tipovi}slovo255"/>
+ *         &lt;element name="primalac" type="{http://paket/tipovi}slovo255"/>
  *         &lt;element name="datumNaloga" type="{http://www.w3.org/2001/XMLSchema}date"/>
  *         &lt;element name="datumValute" type="{http://www.w3.org/2001/XMLSchema}date"/>
- *         &lt;element name="racunDuznika" type="{http://firma/nalog}slovo18"/>
- *         &lt;element name="modelZaduzenja" type="{http://firma/nalog}broj2"/>
- *         &lt;element name="pozivNaBrojZaduzenja" type="{http://firma/nalog}slovo20"/>
- *         &lt;element name="racunPrimaoca" type="{http://firma/nalog}slovo18"/>
- *         &lt;element name="modelOdobrenja" type="{http://firma/nalog}broj2"/>
- *         &lt;element name="pozivNaBrojOdobrenja" type="{http://firma/nalog}slovo20"/>
- *         &lt;element name="iznos" type="{http://firma/nalog}decimalni5-2"/>
- *         &lt;element name="oznakaValute" type="{http://firma/nalog}slovo3"/>
+ *         &lt;element name="racunDuznika" type="{http://paket/tipovi}slovo18"/>
+ *         &lt;element name="modelZaduzenja" type="{http://paket/tipovi}broj2"/>
+ *         &lt;element name="pozivNaBrojZaduzenja" type="{http://paket/tipovi}slovo20"/>
+ *         &lt;element name="racunPrimaoca" type="{http://paket/tipovi}slovo18"/>
+ *         &lt;element name="modelOdobrenja" type="{http://paket/tipovi}broj2"/>
+ *         &lt;element name="pozivNaBrojOdobrenja" type="{http://paket/tipovi}slovo20"/>
+ *         &lt;element name="iznos" type="{http://paket/tipovi}decimalni5-2"/>
+ *         &lt;element name="oznakaValute" type="{http://paket/tipovi}slovo3"/>
  *         &lt;element name="hitno" type="{http://www.w3.org/2001/XMLSchema}boolean"/>
  *       &lt;/sequence>
  *     &lt;/restriction>

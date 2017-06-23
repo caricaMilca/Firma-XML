@@ -142,7 +142,8 @@ public class FakturaServisImpl implements FakturaServis {
         ITextRenderer renderer = new ITextRenderer();
         renderer.setDocument(url);      
         renderer.layout();
-        renderer.createPDF(os);        
+        renderer.createPDF(os);     
+        renderer.finishPDF();
         os.close();
 		return new ResponseEntity<>(HttpStatus.CREATED);
 	}
