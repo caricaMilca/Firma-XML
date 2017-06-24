@@ -102,10 +102,10 @@ public class FakturaServisImpl implements FakturaServis {
 	public ResponseEntity<?> primiFakturu(Faktura f) {
 		System.out.println(f.stavke.size() + "    aaaaaaaaaaaaaaaaaaaaaa");
 		zaglavljeFaktureRepozitorijum.save(f.zaglavljeFakture);
-		Faktura fa = fakturaRepozitorijum.save(f);
-		while(f.stavke.iterator().hasNext()){
-			f.stavke.iterator().next().faktura = fa;
+		for (StavkaFakture s : f.stavke) {
+		    s.faktura = f;
 		}
+		fakturaRepozitorijum.save(f);
 		return new ResponseEntity<>(HttpStatus.ACCEPTED);
 	}
 
