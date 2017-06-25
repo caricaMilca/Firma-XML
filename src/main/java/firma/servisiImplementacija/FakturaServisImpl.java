@@ -9,6 +9,7 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -60,7 +61,14 @@ public class FakturaServisImpl implements FakturaServis {
 	@Override
 	public ResponseEntity<List<Faktura>> ulazneFakture() {
 		// TODO Auto-generated method stub
-		return null;
+		Firma f = (Firma) sesija.getAttribute("firma");
+		List<Faktura> sve = fakturaRepozitorijum.findAll();
+		List<Faktura> lista = new ArrayList<>();
+		for(int i=0; i<sve.size(); i++){
+			if(sve.get(i).zaglavljeFakture.pibKupca.equals(f.pib))
+				lista.add(sve.get(i));
+		}
+		return new ResponseEntity<List<Faktura>>(lista, HttpStatus.OK);
 	}
 
 	@Override
@@ -100,7 +108,6 @@ public class FakturaServisImpl implements FakturaServis {
 
 	@Override
 	public ResponseEntity<?> primiFakturu(Faktura f) {
-		System.out.println(f.stavke.size() + "    aaaaaaaaaaaaaaaaaaaaaa");
 		zaglavljeFaktureRepozitorijum.save(f.zaglavljeFakture);
 		for (StavkaFakture s : f.stavke) {
 		    s.faktura = f;

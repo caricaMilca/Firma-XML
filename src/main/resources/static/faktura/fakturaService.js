@@ -10,6 +10,10 @@ app.factory('fakturaService', function fakturaService($http) {
 		return $http.get("/stavkaFaktura/sveStavkeFakture/" + zaglavljeId);
 	}
 
+	fakturaService.preuzmiPrimljeneFakture = function() {
+		return $http.get("/faktura/ulazneFakture");
+	}
+	
 	fakturaService.dodajZaglavlje = function(zaglavljeFakture) {
 		return $http.post("/zaglavljeFakture/registracijaZaglavljaFakture",
 				zaglavljeFakture);

@@ -1,0 +1,37 @@
+<div ng-controller="fakturaController"
+	ng-init="preuzmiPrimljeneFakture()">
+	<h1 id="header" class="page-header">Sva zaglavlja fakture</h1>
+	<p>
+	<div class="container">
+		<div class="table-responsive">
+			<table class="table">
+				<thead>
+					<tr>
+						<th>Naziv dobavljaca</th>
+						<th>Naziv kupca</th>
+						<th>Datum racuna</th>
+						<th>Ukupno roba i usluge</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="faktura in sveFakture track by faktura.id"
+						ng-click="setSelectedFaktura(zaglavlje)"
+						ng-class="{'info' : selectedFaktura.id === faktura.id}">
+						<td>{{faktura.zaglavljeFakture.nazivDobavljaca}}</td>
+						<td>{{faktura.zaglavljeFakture.nazivKupca}}</td>
+						<td>{{faktura.zaglavljeFakture.datumRacuna}}</td>
+						<td>{{faktura.zaglavljeFakture.ukupnoRobaIUsluge}}
+							{{faktura.zaglavljeFakture.oznakaValute}}</td>
+						<td><button type="submit" ng-click="kreirajHTML()"
+								ng-disabled="!selectedZaglavlje"
+								class="btn btn-primary btn-block">HTML</button></td>
+						<td><button type="submit" ng-click="kreirajPDF()"
+								ng-disabled="!selectedZaglavlje"
+								class="btn btn-primary btn-block">PDF</button></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<br />
+	</div>
+</div>

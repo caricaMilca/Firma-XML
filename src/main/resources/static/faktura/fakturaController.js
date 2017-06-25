@@ -37,6 +37,7 @@ app.controller('fakturaController', [
 		function($rootScope, $scope, $location, ngNotify, fakturaService) {
 
 			$scope.novoZaglavlje = {};
+			$rootScope.sveFakture = {};
 
 			$scope.preuzmiZaglavlja = function() {
 				fakturaService.preuzmiZaglavlja().then(function(response) {
@@ -50,6 +51,14 @@ app.controller('fakturaController', [
 				fakturaService.preuzmiStavke(id).then(function(response) {
 					if (response.data) {
 						$rootScope.sveStavke = response.data;
+					}
+				});
+			}
+			
+			$scope.preuzmiPrimljeneFakture = function() {
+				fakturaService.preuzmiPrimljeneFakture().then(function(response) {
+					if (response.data) {
+						$rootScope.sveFakture = response.data;
 					}
 				});
 			}
