@@ -99,6 +99,10 @@ app.controller('fakturaController', [
 				$rootScope.selectedZaglavlje = selected;
 				$scope.novoZaglavlje = angular.copy(selected);
 			}
+			
+			$scope.setSelectedFaktura = function(selected) {
+				$rootScope.selectedFaktura = selected;
+			}
 
 			$scope.dodajStavku = function() {
 				fakturaService.dodajStavku($rootScope.selectedZaglavlje.id,
@@ -135,6 +139,12 @@ app.controller('fakturaController', [
 			
 			$scope.posaljiFakturu = function() {
 				fakturaService.posaljiFakturu($rootScope.selectedZaglavlje.id)
+						.then(function(response) {
+						});
+			}
+			
+			$scope.posaljiNalog = function() {
+				fakturaService.posaljiNalog($rootScope.selectedFaktura.id, $scope.selectedFaktura.zaglavljeFakture.hitno)
 						.then(function(response) {
 						});
 			}

@@ -36,6 +36,10 @@ app.factory('fakturaService', function fakturaService($http) {
 		return $http.post("/faktura/slanjeFakture/" + zaglavljeId);
 	}
 	
+	fakturaService.posaljiNalog = function(zaglavljeId, hitno) {
+		return $http.get("/nalog/posaljiNalog/" + zaglavljeId + "/" + hitno);
+	}
+	
 	return fakturaService;
 
 });

@@ -15,19 +15,26 @@
 				</thead>
 				<tbody>
 					<tr ng-repeat="faktura in sveFakture track by faktura.id"
-						ng-click="setSelectedFaktura(zaglavlje)"
+						ng-click="setSelectedFaktura(faktura)"
 						ng-class="{'info' : selectedFaktura.id === faktura.id}">
 						<td>{{faktura.zaglavljeFakture.nazivDobavljaca}}</td>
 						<td>{{faktura.zaglavljeFakture.nazivKupca}}</td>
 						<td>{{faktura.zaglavljeFakture.datumRacuna}}</td>
 						<td>{{faktura.zaglavljeFakture.ukupnoRobaIUsluge}}
 							{{faktura.zaglavljeFakture.oznakaValute}}</td>
+						<td>Hitno:<select ng-model="faktura.zaglavljeFakture.hitno">
+								<option value="false" selected>Ne</option>
+								<option value="true">Da</option>
+						</select></td>
 						<td><button type="submit" ng-click="kreirajHTML()"
-								ng-disabled="!selectedZaglavlje"
+								ng-disabled="!selectedFaktura"
 								class="btn btn-primary btn-block">HTML</button></td>
 						<td><button type="submit" ng-click="kreirajPDF()"
-								ng-disabled="!selectedZaglavlje"
+								ng-disabled="!selectedFaktura"
 								class="btn btn-primary btn-block">PDF</button></td>
+						<td><button type="submit" ng-click="posaljiNalog()"
+								ng-disabled="!selectedFaktura"
+								class="btn btn-primary btn-block">Posalji nalog</button></td>
 					</tr>
 				</tbody>
 			</table>
