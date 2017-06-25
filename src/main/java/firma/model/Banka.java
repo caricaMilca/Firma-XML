@@ -43,8 +43,6 @@ public class Banka {
 	public TipBanke tip;
 	
 	public String port;
-
-	public String tip;
 	
 	@XmlTransient
 	@OneToMany(fetch = FetchType.EAGER, mappedBy = "banka", cascade = CascadeType.ALL)

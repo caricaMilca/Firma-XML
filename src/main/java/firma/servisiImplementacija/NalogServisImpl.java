@@ -51,8 +51,7 @@ public class NalogServisImpl implements NalogServis {
 		String uri = "http://localhost:" + f.racuni.iterator().next().banka.port + "/ws";
 		System.out.println(uri + " aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
 		webServiceTemplate.setDefaultUri(uri);
-		webServiceTemplate.marshalSendAndReceive(nalogZahtjev);
-		return null;
+		return (ResponseEntity<?>) webServiceTemplate.marshalSendAndReceive(nalogZahtjev);
 	}
 
 }
