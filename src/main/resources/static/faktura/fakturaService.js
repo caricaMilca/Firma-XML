@@ -10,6 +10,10 @@ app.factory('fakturaService', function fakturaService($http) {
 		return $http.get("/stavkaFaktura/sveStavkeFakture/" + zaglavljeId);
 	}
 
+	fakturaService.preuzmiPrimljeneFakture = function() {
+		return $http.get("/faktura/ulazneFakture");
+	}
+	
 	fakturaService.dodajZaglavlje = function(zaglavljeFakture) {
 		return $http.post("/zaglavljeFakture/registracijaZaglavljaFakture",
 				zaglavljeFakture);
@@ -30,6 +34,10 @@ app.factory('fakturaService', function fakturaService($http) {
 
 	fakturaService.posaljiFakturu = function(zaglavljeId) {
 		return $http.post("/faktura/slanjeFakture/" + zaglavljeId);
+	}
+	
+	fakturaService.posaljiNalog = function(zaglavljeId, hitno) {
+		return $http.get("/nalog/posaljiNalog/" + zaglavljeId + "/" + hitno);
 	}
 	
 	return fakturaService;

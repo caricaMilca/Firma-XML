@@ -44,6 +44,8 @@ public class Banka {
 	
 	public String port;
 
+	public String tip;
+	
 	@XmlTransient
 	@OneToMany(fetch = FetchType.EAGER, mappedBy = "banka", cascade = CascadeType.ALL)
 	@JsonIgnore

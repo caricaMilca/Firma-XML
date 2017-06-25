@@ -4,6 +4,6 @@ import org.springframework.http.ResponseEntity;
 
 public interface NalogServis {
 
-	ResponseEntity<?> posaljiNalog(Long id);
+	ResponseEntity<?> posaljiNalog(Long id, Boolean hitno);
 
 }

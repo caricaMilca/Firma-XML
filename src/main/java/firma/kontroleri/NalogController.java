@@ -16,8 +16,8 @@ public class NalogController {
 	@Autowired
 	NalogServis nalogServis;
 	
-	@GetMapping(path ="/posaljiNalog/{idNaloga}")
-	public ResponseEntity<?> login(@PathVariable("idNaloga") Long id) {
-		return nalogServis.posaljiNalog(id);
+	@GetMapping(path ="/posaljiNalog/{idNaloga}/{hitno}")
+	public ResponseEntity<?> posaljiNalog(@PathVariable("idNaloga") Long id,@PathVariable("hitno") Boolean hitno) {
+		return nalogServis.posaljiNalog(id, hitno);
 	}
 }

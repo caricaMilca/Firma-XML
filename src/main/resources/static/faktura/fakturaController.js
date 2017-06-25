@@ -37,6 +37,7 @@ app.controller('fakturaController', [
 		function($rootScope, $scope, $location, ngNotify, fakturaService) {
 
 			$scope.novoZaglavlje = {};
+			$rootScope.sveFakture = {};
 
 			$scope.preuzmiZaglavlja = function() {
 				fakturaService.preuzmiZaglavlja().then(function(response) {
@@ -50,6 +51,14 @@ app.controller('fakturaController', [
 				fakturaService.preuzmiStavke(id).then(function(response) {
 					if (response.data) {
 						$rootScope.sveStavke = response.data;
+					}
+				});
+			}
+			
+			$scope.preuzmiPrimljeneFakture = function() {
+				fakturaService.preuzmiPrimljeneFakture().then(function(response) {
+					if (response.data) {
+						$rootScope.sveFakture = response.data;
 					}
 				});
 			}
@@ -90,6 +99,10 @@ app.controller('fakturaController', [
 				$rootScope.selectedZaglavlje = selected;
 				$scope.novoZaglavlje = angular.copy(selected);
 			}
+			
+			$scope.setSelectedFaktura = function(selected) {
+				$rootScope.selectedFaktura = selected;
+			}
 
 			$scope.dodajStavku = function() {
 				fakturaService.dodajStavku($rootScope.selectedZaglavlje.id,
@@ -126,6 +139,12 @@ app.controller('fakturaController', [
 			
 			$scope.posaljiFakturu = function() {
 				fakturaService.posaljiFakturu($rootScope.selectedZaglavlje.id)
+						.then(function(response) {
+						});
+			}
+			
+			$scope.posaljiNalog = function() {
+				fakturaService.posaljiNalog($rootScope.selectedFaktura.id, $scope.selectedFaktura.zaglavljeFakture.hitno)
 						.then(function(response) {
 						});
 			}

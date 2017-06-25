@@ -34,7 +34,7 @@ public class NalogServisImpl implements NalogServis {
 	WebServiceTemplate webServiceTemplate;
 	
 	@Override
-	public ResponseEntity<?> posaljiNalog(Long id) {
+	public ResponseEntity<?> posaljiNalog(Long id, Boolean hitno) {
 		Faktura fak = fakturaRepozitorijum.findOne(id);
 		ZaglavljeFakture zf = fak.zaglavljeFakture;
 		Firma f = (Firma) sesija.getAttribute("firma");
@@ -42,7 +42,7 @@ public class NalogServisImpl implements NalogServis {
 		Nalog n = new Nalog(idPoruke, zf.nazivKupca, "svrha placanja", f.naziv, zf.datumRacuna, zf.datumValute,
 				f.racuni.iterator().next().brojRacuna, BigInteger.valueOf(97L), "11111111111111111111",
 				zf.uplataNaRacun, BigInteger.valueOf(97L), "2222222222222222222222", zf.iznosZaUplatu, zf.oznakaValute,
-				false);
+				hitno);
 		if (n.getIznos().compareTo(BigDecimal.valueOf(250000L)) > 1)
 			n.setHitno(true);
 		GetNalogRequest nalogZahtjev = new GetNalogRequest();

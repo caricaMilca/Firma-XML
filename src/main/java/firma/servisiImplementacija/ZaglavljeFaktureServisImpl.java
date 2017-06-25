@@ -2,6 +2,7 @@ package firma.servisiImplementacija;
 
 import java.math.BigDecimal;
 import java.sql.Date;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
@@ -47,7 +48,14 @@ public class ZaglavljeFaktureServisImpl implements ZaglavljeFaktureServis {
 
 	@Override
 	public ResponseEntity<List<ZaglavljeFakture>> svaZaglavljaFakture() {
-		return new ResponseEntity<List<ZaglavljeFakture>>(zaglavljeFaktureRepozitorijum.findAll(), HttpStatus.OK);
+		Firma f = (Firma) sesija.getAttribute("firma");
+		List<ZaglavljeFakture> sve = zaglavljeFaktureRepozitorijum.findAll();
+		List<ZaglavljeFakture> lista = new ArrayList<>();
+		for(int i=0; i<sve.size(); i++){
+			if(sve.get(i).pibDobavljaca.equals(f.pib))
+				lista.add(sve.get(i));
+		}
+		return new ResponseEntity<List<ZaglavljeFakture>>(lista, HttpStatus.OK);
 	}
 
 }
