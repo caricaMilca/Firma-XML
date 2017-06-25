@@ -10,5 +10,7 @@ import firma.model.Racun;
 public interface RacunRepozitorijum extends JpaRepository<Racun, Long> {
 
 	List<Racun> findByFirma(Firma attribute);
+	
+	Racun findByBrojRacuna(String brojRacuna);
 
 }
