@@ -7,6 +7,7 @@ import java.util.UUID;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -16,6 +17,7 @@ import firma.model.Faktura;
 import firma.model.Firma;
 import firma.model.ZaglavljeFakture;
 import firma.nalog.GetNalogRequest;
+import firma.nalog.GetNalogResponse;
 import firma.nalog.Nalog;
 import firma.repozitorijumi.FakturaRepozitorijum;
 import firma.servisi.NalogServis;
@@ -51,7 +53,8 @@ public class NalogServisImpl implements NalogServis {
 		String uri = "http://localhost:" + f.racuni.iterator().next().banka.port + "/ws";
 		System.out.println(uri + " aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
 		webServiceTemplate.setDefaultUri(uri);
-		return (ResponseEntity<?>) webServiceTemplate.marshalSendAndReceive(nalogZahtjev);
+		webServiceTemplate.marshalSendAndReceive(nalogZahtjev);
+		return new ResponseEntity<>(HttpStatus.OK) ;
 	}
 
 }

@@ -16,6 +16,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import firma.model.Firma;
 import firma.model.ZaglavljeFakture;
+import firma.repozitorijumi.FirmaRepozitorijum;
 import firma.repozitorijumi.ZaglavljeFaktureRepozitorijum;
 import firma.servisi.ZaglavljeFaktureServis;
 
@@ -26,6 +27,9 @@ public class ZaglavljeFaktureServisImpl implements ZaglavljeFaktureServis {
 	@Autowired
 	ZaglavljeFaktureRepozitorijum zaglavljeFaktureRepozitorijum;
 
+	@Autowired
+	FirmaRepozitorijum firmaRep;
+	
 	@Autowired
 	HttpSession sesija;
 
@@ -43,6 +47,7 @@ public class ZaglavljeFaktureServisImpl implements ZaglavljeFaktureServis {
 		zf.ukupnoRobaIUsluge.add(zf.ukupnoRobaIUsluge.negate().multiply(zf.ukupanRabat.divide(new BigDecimal(100.0), 1)));
 		zf.ukupanPorez = vrijednostSRabatom.multiply(new BigDecimal(0.17));
 		zf.iznosZaUplatu = zf.ukupanPorez.add(vrijednostSRabatom);
+		zf.uplataNaRacun = f.racuni.iterator().next().brojRacuna;
 		return new ResponseEntity<ZaglavljeFakture>(zaglavljeFaktureRepozitorijum.save(zf), HttpStatus.CREATED);
 	}
 
