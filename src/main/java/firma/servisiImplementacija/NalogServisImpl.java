@@ -17,10 +17,10 @@ import firma.model.Faktura;
 import firma.model.Firma;
 import firma.model.ZaglavljeFakture;
 import firma.nalog.GetNalogRequest;
-import firma.nalog.GetNalogResponse;
 import firma.nalog.Nalog;
 import firma.repozitorijumi.FakturaRepozitorijum;
 import firma.servisi.NalogServis;
+import xmlTransformacije.SAXValidator;
 
 @Service
 @Transactional
@@ -34,6 +34,8 @@ public class NalogServisImpl implements NalogServis {
 	
 	@Autowired
 	WebServiceTemplate webServiceTemplate;
+
+	SAXValidator validator = new SAXValidator();
 	
 	@Override
 	public ResponseEntity<?> posaljiNalog(Long id, Boolean hitno) {
@@ -52,6 +54,10 @@ public class NalogServisImpl implements NalogServis {
 
 		String uri = "http://localhost:" + f.racuni.iterator().next().banka.port + "/ws";
 		System.out.println(uri + " aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
+		boolean parsovano = validator.parse(n, "nalog");
+		System.out.println("parsovano +   " + parsovano);
+		if(!parsovano)
+			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 		webServiceTemplate.setDefaultUri(uri);
 		webServiceTemplate.marshalSendAndReceive(nalogZahtjev);
 		return new ResponseEntity<>(HttpStatus.OK) ;

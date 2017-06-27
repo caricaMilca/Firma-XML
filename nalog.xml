@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<nalog xmlns="http://paket/nalog">
+    <idPoruke>71f41e12-2465-4b40-8f25-21056235dfcd</idPoruke>
+    <duznik>adsasd</duznik>
+    <svrhaPlacanja>svrha placanja</svrhaPlacanja>
+    <primalac>Ceks1</primalac>
+    <datumNaloga>2017-06-27</datumNaloga>
+    <datumValute>2017-06-27</datumValute>
+    <racunDuznika>124-2222222222222-2</racunDuznika>
+    <modelZaduzenja>97</modelZaduzenja>
+    <pozivNaBrojZaduzenja>11111111111111111111</pozivNaBrojZaduzenja>
+    <racunPrimaoca>123-1111111111111-1</racunPrimaoca>
+    <modelOdobrenja>97</modelOdobrenja>
+    <pozivNaBrojOdobrenja>2222222222222222222222</pozivNaBrojOdobrenja>
+    <iznos>378.89</iznos>
+    <oznakaValute>dasdassd</oznakaValute>
+    <hitno>true</hitno>
+</nalog>
