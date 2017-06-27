@@ -1,59 +1,90 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"
-    targetNamespace="http://paket/tipovi" xmlns:nzp="http://paket/tipovi">
-    <xs:simpleType name="broj2">
-        <xs:restriction base="xs:integer">
-            <xs:pattern value="\d{2}" />
-        </xs:restriction>
-    </xs:simpleType>
-    
-    <xs:simpleType name="broj20">
-        <xs:restriction base="xs:integer">
-            <xs:pattern value="\d{20}" />
-        </xs:restriction>
-    </xs:simpleType>
-    
-    <xs:simpleType name="decimalni5-2">
-        <xs:restriction base="xs:decimal">
-            <xs:totalDigits value="5" />
-            <xs:fractionDigits value="2" />
-        </xs:restriction>
-    </xs:simpleType>
-    
-    <xs:simpleType name="slovo3">
-        <xs:restriction base="xs:string">
-            <xs:minLength value="3" />
-            <xs:maxLength value="3" />
-        </xs:restriction>
-    </xs:simpleType>
-    
-    <xs:simpleType name="slovo18">
-        <xs:restriction base="xs:string">
-            <xs:minLength value="18" />
-            <xs:maxLength value="18" />
-        </xs:restriction>
-    </xs:simpleType>
-    
-    <xs:simpleType name="slovo20">
-        <xs:restriction base="xs:string">
-            <xs:minLength value="20" />
-            <xs:maxLength value="20" />
-        </xs:restriction>
-    </xs:simpleType>
-    
-    <xs:simpleType name="slovo50">
-        <xs:restriction base="xs:string">
-            <xs:minLength value="1" />
-            <xs:maxLength value="50" />
-        </xs:restriction>
-    </xs:simpleType>
-    
-    <xs:simpleType name="slovo255">
-        <xs:restriction base="xs:string">
-            <xs:minLength value="1" />
-            <xs:maxLength value="255" />
-        </xs:restriction>
-    </xs:simpleType>
-    
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	elementFormDefault="qualified" targetNamespace="http://paket/tipovi"
+	xmlns:nzp="http://paket/tipovi">
+	<xs:simpleType name="broj2">
+		<xs:restriction base="xs:integer">
+			<xs:pattern value="\d{2}" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="broj20">
+		<xs:restriction base="xs:integer">
+			<xs:pattern value="\d{20}" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="decimalni5-2">
+		<xs:restriction base="xs:decimal">
+			<xs:totalDigits value="5" />
+			<xs:fractionDigits value="2" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="slovo3">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="3" />
+			<xs:maxLength value="3" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="slovo18">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="18" />
+			<xs:maxLength value="18" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="slovo20">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="20" />
+			<xs:maxLength value="20" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="slovo50">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1" />
+			<xs:maxLength value="50" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="slovo255">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1" />
+			<xs:maxLength value="255" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="slovo1">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1" />
+			<xs:maxLength value="1" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="broj6">
+		<xs:restriction base="xs:integer">
+			<xs:pattern value="\d{6}" />
+		</xs:restriction>
+	</xs:simpleType>
+
+
+	<xs:simpleType name="string255">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1" />
+			<xs:maxLength value="255" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="decimalni15-2">
+		<xs:restriction base="xs:decimal">
+			<xs:minInclusive value="0"></xs:minInclusive>
+			<xs:fractionDigits value="2"></xs:fractionDigits>
+			<xs:totalDigits value="17"></xs:totalDigits>
+		</xs:restriction>
+	</xs:simpleType>
+
+
 </xs:schema>
 

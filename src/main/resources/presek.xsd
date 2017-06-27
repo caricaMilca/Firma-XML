@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"
+    targetNamespace="http://firma/presek" xmlns:npp="http://firma/presek" xmlns:xsT="http://paket/tipovi">
+        <xs:import namespace="http://paket/tipovi"
+		schemaLocation="tipovi.xsd" />
+    
+    
+        
+    <xs:element name="getPresekRequest">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="presek" type="npp:presek" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="getPresekResponse">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="presek" type="npp:presek" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+    
+    
+    
+    <xs:complexType name="presek">
+            <xs:sequence>
+                <xs:element ref="npp:zaglavljePreseka"/>
+                <xs:element ref="npp:stavkaPreseka" maxOccurs="unbounded"/>
+            </xs:sequence>
+        </xs:complexType>
+    
+    
+    <xs:element name="zaglavljePreseka" type="npp:ZaglavljePreseka">
+        
+    </xs:element>
+    
+    <xs:element name="stavkaPreseka" type="npp:StavkaPreseka">
+    </xs:element>
+    
+    <xs:complexType name="ZaglavljePreseka">
+        <xs:sequence>
+            <xs:element name="brojRacuna" type="xsT:slovo18"/>
+            <xs:element name="datumNaloga" type="xs:date"/>
+            <xs:element name="brojPreseka" type="xsT:broj2" />
+            <xs:element name="prethodnoStanje" type="xsT:decimalni15-2"/>
+            <xs:element name="brojPromenaUKorist" type="xsT:broj6"/>
+            <xs:element name="ukupnoUKorist" type="xsT:decimalni15-2"/>
+            <xs:element name="brojPromenaNaTeret" type="xsT:broj6"/>
+            <xs:element name="ukupnoNaTeret" type="xsT:decimalni15-2"/>
+            <xs:element name="novoStanje" type="xsT:decimalni15-2"/>
+        </xs:sequence>
+    </xs:complexType>
+    
+    
+    
+    
+    <xs:complexType name="StavkaPreseka">
+        <xs:sequence>
+            <xs:element name="duznik" type="xsT:slovo255"/>
+            <xs:element name="svrhaPlacanja" type="xsT:string255"/>
+            <xs:element name="primalac" type="xsT:string255"/>
+            <xs:element name="datumNaloga" type="xs:date"/>
+            <xs:element name="datumValute" type="xs:date"/>
+            <xs:element name="racunDuznika" type="xsT:slovo18"/>
+            <xs:element name="modelZaduzenja" type="xsT:broj2"/>
+            <xs:element name="pozivNaBrojZaduzenja" type="xsT:slovo20"/>
+            
+            <xs:element name="racunPrimaoca" type="xsT:slovo18"/>
+            <xs:element name="modelOdobrenja" type="xsT:broj2"/>
+            <xs:element name="pozivNaBrojOdobrenja" type="xsT:slovo20"/>
+            <xs:element name="iznos" type="xsT:decimalni15-2"/> 
+            <xs:element name="smer" type="xsT:slovo1"/>
+        </xs:sequence>
+    </xs:complexType>
+    
+</xs:schema>

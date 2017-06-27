@@ -1,0 +1,34 @@
+<div ng-controller="zahtevController">
+	<h1 id="header" class="page-header">Zahtev</h1>
+	<p>
+	<div class="container" id="razmak">
+		<form class="form-horizontal" role="blabla" name="myForm2" novalidate>
+			<div class="form-group">
+				<label for="brojRacuna" class="col-sm-3 control-label">Broj Racuna</label>
+				<div class="col-sm-9">
+					<input type="text" id="nazivRobeIliUsluge" class="form-control"
+						placeholder="Unesi broj Racuna" name="brojRacuna"
+						ng-Model="zahtev.brojRacuna">
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="redniBrojPreseka" class="col-sm-3 control-label">Redni broj preseka</label>
+				<div class="col-sm-9">
+					<input type="number" id="kolicina" class="form-control"
+						placeholder="Unesi redni broj preseka" name="redniBrojPreseka"
+						ng-Model="zahtev.redniBrojPreseka">
+				</div>
+			</div>
+			<div class="form-group">
+				<label>Datum:</label> <input type="date" name="datum"
+					ng-Model="zahtev.datum" class="form-control"
+					placeholder="Datum" />
+			</div>
+			<div class="modal-footer" ng-controller="zahtevController">
+				
+				<button type="submit" ng-click="posaljiZahtev()"
+					class="btn btn-primary">Posalji</button>
+			</div>
+		</form>
+	</div>
+</div>

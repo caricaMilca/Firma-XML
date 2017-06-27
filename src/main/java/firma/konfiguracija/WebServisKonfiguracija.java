@@ -29,17 +29,17 @@ public class WebServisKonfiguracija extends WsConfigurerAdapter {
 
 		return new ServletRegistrationBean(servlet, "/ws/*");
 	}
-	/*@Bean(name = "nalogBean")
-	public DefaultWsdl11Definition defaultWsdl11Definition(@Qualifier("nalog") XsdSchema nalog){
-		DefaultWsdl11Definition wsdl11Definition = new DefaultWsdl11Definition();
-		wsdl11Definition.setPortTypeName("nalogPort");
-		wsdl11Definition.setLocationUri("/ws");
-	//	wsdl11Definition.setTargetNamespace("http://Firma.com/ws/");
-	//	wsdl11Definition.setSchemaCollection(schemaCollection);
-		wsdl11Definition.setSchema(nalog);
-		return wsdl11Definition;
-	}*/
-	
+	/*
+	 * @Bean(name = "nalogBean") public DefaultWsdl11Definition
+	 * defaultWsdl11Definition(@Qualifier("nalog") XsdSchema nalog){
+	 * DefaultWsdl11Definition wsdl11Definition = new DefaultWsdl11Definition();
+	 * wsdl11Definition.setPortTypeName("nalogPort");
+	 * wsdl11Definition.setLocationUri("/ws"); //
+	 * wsdl11Definition.setTargetNamespace("http://Firma.com/ws/"); //
+	 * wsdl11Definition.setSchemaCollection(schemaCollection);
+	 * wsdl11Definition.setSchema(nalog); return wsdl11Definition; }
+	 */
+
 	@Bean(name = "firma")
 	public DefaultWsdl11Definition defaultWsdl11Definition(CommonsXsdSchemaCollection schemaCollection)
 			throws Exception {
@@ -51,11 +51,11 @@ public class WebServisKonfiguracija extends WsConfigurerAdapter {
 		return wsdl11Definition;
 	}
 
-	
 	@Bean
 	public CommonsXsdSchemaCollection schemeCollection() {
 		CommonsXsdSchemaCollection collection = new CommonsXsdSchemaCollection(
-				new Resource[] {new ClassPathResource("/nalog.xsd")});
+				new Resource[] { new ClassPathResource("/nalog.xsd"), new ClassPathResource("/zahtev.xsd"),
+						new ClassPathResource("/presek.xsd") });
 		collection.setInline(true);
 		return collection;
 	}
@@ -63,7 +63,7 @@ public class WebServisKonfiguracija extends WsConfigurerAdapter {
 	@Bean
 	Jaxb2Marshaller jaxb2Marshaller() {
 		Jaxb2Marshaller jaxb2Marshaller = new Jaxb2Marshaller();
-		jaxb2Marshaller.setContextPaths("firma.nalog");
+		jaxb2Marshaller.setContextPaths("firma.nalog", "firma.zahtev", "firma.presek");
 		return jaxb2Marshaller;
 	}
 
@@ -82,5 +82,11 @@ public class WebServisKonfiguracija extends WsConfigurerAdapter {
 	@Qualifier("nalog")
 	public XsdSchema nalog() {
 		return new SimpleXsdSchema(new ClassPathResource("nalog.xsd"));
+	}
+
+	@Bean
+	@Qualifier("zahtev")
+	public XsdSchema zahtev() {
+		return new SimpleXsdSchema(new ClassPathResource("zahtev.xsd"));
 	}
 }

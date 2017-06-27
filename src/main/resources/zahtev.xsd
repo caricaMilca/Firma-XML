@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	elementFormDefault="qualified" targetNamespace="http://paket/zahtev"
+	xmlns:nza="http://paket/zahtev" xmlns:xsT="http://paket/tipovi">
+	<xs:import namespace="http://paket/tipovi" schemaLocation="tipovi.xsd" />
+	<xs:element name="getZahtevRequest">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="zahtev" type="nza:zahtev" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="getZahtevResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="zahtev" type="nza:zahtev" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+	<xs:complexType name="zahtev">
+		<xs:sequence>
+			<xs:element name="brojRacuna" type="xsT:slovo18" />
+			<xs:element name="datumZahteva" type="xs:date" />
+			<xs:element name="redniBrojPreseka" type="xsT:broj2" />
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>
