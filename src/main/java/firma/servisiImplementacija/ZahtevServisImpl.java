@@ -34,8 +34,11 @@ public class ZahtevServisImpl implements ZahtevServis {
 		System.out.println("firma zahtev servis impl");
 		Racun r = racunRep.findByBrojRacuna(z.getBrojRacuna());
 		Banka b = r.banka;
+		System.out.println(z.getDatumZahteva());
 		GetZahtevRequest zahtev = new GetZahtevRequest();
+	
 		zahtev.setZahtev(z);
+	    System.out.println(zahtev.getZahtev().getDatumZahteva());
 		String uri = "http://localhost:" + b.port + "/ws";
 		System.out.println(" uri: " + uri);
 		webServiceTemplate.setDefaultUri(uri);

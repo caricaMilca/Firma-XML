@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"
-    targetNamespace="http://firma/presek" xmlns:npp="http://firma/presek" xmlns:xsT="http://paket/tipovi">
+    targetNamespace="http://paket/presek" xmlns:npp="http://paket/presek" xmlns:xsT="http://paket/tipovi">
         <xs:import namespace="http://paket/tipovi"
 		schemaLocation="tipovi.xsd" />
     
     
+        
         
     <xs:element name="getPresekRequest">
 		<xs:complexType>

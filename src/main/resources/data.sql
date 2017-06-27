@@ -11,3 +11,4 @@ insert into Racun(broj_racuna, firma_id, banka_id, obracunski, valuta, promet_na
 
 insert into Racun(broj_racuna, firma_id, banka_id, obracunski, valuta, promet_na_teret, promet_na_korist, novo_stanje, rezervisana_sredstva) values ('123-1111111111111-1', 1, 1, true, 'rsd', 0 , 50000, 50000, 0);
 insert into Racun(broj_racuna, firma_id, banka_id, obracunski, valuta, promet_na_teret, promet_na_korist, novo_stanje, rezervisana_sredstva) values ('124-2222222222222-2', 2, 2, true, 'rsd', 0 , 50000, 50000, 0);
+
