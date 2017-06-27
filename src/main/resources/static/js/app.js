@@ -18,5 +18,8 @@ app.config(function($routeProvider, $locationProvider) {
 	}).when('/zahtev/zahtevi', {
 		templateUrl : '/zahtev/noviZahtev.html',
 		controller : 'zahtevController'
+	}).when('/zahtev/presek', {
+		templateUrl : '/zahtev/presek.html',
+		controller : 'zahtevController'
 	})
 });

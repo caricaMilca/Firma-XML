@@ -75,7 +75,7 @@ app.controller('fakturaController', [
 								ngNotify.set('Uspesno dodavanje zaglavlja', {
 									type : 'success'
 								});
-								// $scope.svaZaglavlja.push(response.data);
+								$scope.svaZaglavlja.push(response.data);
 								$scope.preuzmiZaglavlja();
 								$scope.novoZaglavlje = null;
 								$scope.show = null;

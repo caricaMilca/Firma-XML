@@ -1,0 +1,60 @@
+<div ng-controller="zahtevController">
+	<h1 id="header" class="page-header">Zaglavlje preseka</h1>
+	<p>
+	<div class="container">
+		<div class="table-responsive">
+			<table class="table">
+				<thead>
+					<tr>
+						<th>Broj racuna</th>
+						<th>Prethodno stanje</th>
+						<th>Broj promena u korist</th>
+						<th>Ukupno u korist</th>
+						<th>Broj promena na teret</th>
+						<th>Ukupno na teret</th>
+						<th>Novo stanje</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>{{presek.zaglavljePreseka.brojRacuna}}</td>
+						<td>{{presek.zaglavljePreseka.prethodnoStanje}}</td>
+						<td>{{presek.zaglavljePreseka.brojPromenaUKorist}}</td>
+						<td>{{presek.zaglavljePreseka.ukupnoUKorist}}</td>
+						<td>{{presek.zaglavljePreseka.brojPromenaNaTeret}}</td>
+						<td>{{presek.zaglavljePreseka.ukupnoNaTeret}}</td>
+						<td>{{presek.zaglavljePreseka.novoStanje}}</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<br />
+	</div>
+	<br /> <br />
+	<h1 id="header" class="page-header">Sve stavke preseka</h1>
+	<div class="container">
+		<div class="table-responsive">
+			<table class="table">
+				<thead>
+					<tr>
+						<th>Duznik</th>
+						<th>Racun duznika</th>
+						<th>Primalac</th>
+						<th>Racun primaoca</th>
+						<th>Iznos</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="stavka in presek.stavkaPreseka track by stavka.id">
+						<td>{{presek.stavkaPreseka.duznik}}</td>
+						<td>{{presek.stavkaPreseka.racunDuznika}}</td>
+						<td>{{presek.stavkaPreseka.primalac}}</td>
+						<td>{{presek.stavkaPreseka.racunPrimaoca}}</td>
+						<td>{{presek.stavkaPreseka.iznos}}</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<br />
+	</div>
+</div>
