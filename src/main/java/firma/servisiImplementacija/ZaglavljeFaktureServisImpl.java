@@ -1,6 +1,7 @@
 package firma.servisiImplementacija;
 
 import java.math.BigDecimal;
+import java.math.BigInteger;
 import java.sql.Date;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -39,14 +40,18 @@ public class ZaglavljeFaktureServisImpl implements ZaglavljeFaktureServis {
 		zf.nazivDobavljaca = f.naziv;
 		zf.adresaDobavljaca = f.adresa;
 		zf.pibDobavljaca = f.pib;
-		zf.ukupnoRobaIUsluge = zf.vrijednostRobe.add(zf.vrijednostUsluga);
+		zf.ukupnoRobaIUsluge = BigDecimal.valueOf(0);
+		zf.ukupanRabat = BigDecimal.valueOf(0);
+		zf.ukupanPorez = BigDecimal.valueOf(0);
+		//zf.ukupnoRobaIUsluge = zf.vrijednostRobe.add(zf.vrijednostUsluga);
 		zf.datumRacuna =  new Date(Calendar.getInstance().getTimeInMillis());
 		zf.datumValute = zf.datumRacuna;
 		//BigDecimal vrijednostSRabatom = new BigDecimal(500);
-		BigDecimal vrijednostSRabatom =
-		zf.ukupnoRobaIUsluge.add(zf.ukupnoRobaIUsluge.negate().multiply(zf.ukupanRabat.divide(new BigDecimal(100.0), 1)));
-		zf.ukupanPorez = vrijednostSRabatom.multiply(new BigDecimal(0.17));
-		zf.iznosZaUplatu = zf.ukupanPorez.add(vrijednostSRabatom);
+		//BigDecimal vrijednostSRabatom = BigDecimal.valueOf(0);
+		//zf.ukupnoRobaIUsluge.add(zf.ukupnoRobaIUsluge.negate().multiply(zf.ukupanRabat.divide(new BigDecimal(100.0), 1)));
+		//zf.ukupanPorez = vrijednostSRabatom.multiply(new BigDecimal(0.17));
+		//zf.iznosZaUplatu = zf.ukupanPorez.add(vrijednostSRabatom);
+		zf.iznosZaUplatu = BigDecimal.valueOf(0);
 		zf.uplataNaRacun = f.racuni.iterator().next().brojRacuna;
 		return new ResponseEntity<ZaglavljeFakture>(zaglavljeFaktureRepozitorijum.save(zf), HttpStatus.CREATED);
 	}

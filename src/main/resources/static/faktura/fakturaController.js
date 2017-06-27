@@ -38,7 +38,8 @@ app.controller('fakturaController', [
 
 			$scope.novoZaglavlje = {};
 			$rootScope.sveFakture = {};
-
+			$scope.iskljuci = true;
+			
 			$scope.preuzmiZaglavlja = function() {
 				fakturaService.preuzmiZaglavlja().then(function(response) {
 					if (response.data) {
@@ -98,6 +99,10 @@ app.controller('fakturaController', [
 			$scope.setSelectedZaglavlje = function(selected) {
 				$rootScope.selectedZaglavlje = selected;
 				$scope.novoZaglavlje = angular.copy(selected);
+				if(selected.iznosZaUplatu == 0){
+					$scope.iskljuci = true;
+				} else
+					$scope.iskljuci = false;
 			}
 			
 			$scope.setSelectedFaktura = function(selected) {
@@ -144,6 +149,8 @@ app.controller('fakturaController', [
 			}
 			
 			$scope.posaljiNalog = function() {
+				if($scope.selectedFaktura.zaglavljeFakture.hitno == undefined)
+					$scope.selectedFaktura.zaglavljeFakture.hitno = false;
 				fakturaService.posaljiNalog($rootScope.selectedFaktura.id, $scope.selectedFaktura.zaglavljeFakture.hitno)
 						.then(function(response) {
 						});

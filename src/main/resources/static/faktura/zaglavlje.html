@@ -19,21 +19,33 @@
 						<td>{{zaglavlje.nazivDobavljaca}}</td>
 						<td>{{zaglavlje.nazivKupca}}</td>
 						<td>{{zaglavlje.datumRacuna}}</td>
-						<td>{{zaglavlje.ukupnoRobaIUsluge}}
-							{{zaglavlje.oznakaValute}}</td>
-						<td><button type="submit" ng-click="posaljiNaStavku()"
-								ng-disabled="!selectedZaglavlje"
-								class="btn btn-primary btn-block">Dodaj stavku</button></td>
-						<td><button type="submit" ng-click="kreirajHTML()"
-								ng-disabled="!selectedZaglavlje"
-								class="btn btn-primary btn-block">HTML</button></td>
-						<td><button type="submit" ng-click="kreirajPDF()"
-								ng-disabled="!selectedZaglavlje"
-								class="btn btn-primary btn-block">PDF</button></td>
-						<td><button type="submit" ng-click="posaljiFakturu()"
-								ng-disabled="!selectedZaglavlje"
-								class="btn btn-primary btn-block">Posalji fakturu</button></td>
+						<td>{{zaglavlje.iznosZaUplatu}} {{zaglavlje.oznakaValute}}</td>
+
+
 					</tr>
+					<tr>
+						<td />
+						<td />
+						<td><button ng-disabled="iskljuci" type="submit"
+								ng-click="kreirajHTML()" class="btn btn-primary btn-block">HTML</button></td>
+
+						<td><button ng-disabled="iskljuci" type="submit"
+								ng-click="kreirajPDF()" class="btn btn-primary btn-block">PDF</button></td>
+					</tr>
+					<tr>
+						<td /><td />
+						
+						<td><button ng-disabled="iskljuci" type="submit"
+								ng-click="posaljiFakturu()" class="btn btn-primary btn-block">Posalji
+								fakturu</button></td>
+
+						<td>
+							<button ng-disabled="iskljuci" type="submit"
+								ng-click="posaljiNaStavku()" class="btn btn-primary btn-block">Dodaj
+								stavku</button>
+						</td>
+					</tr>
+
 				</tbody>
 			</table>
 		</div>
@@ -79,36 +91,6 @@
 						<input type="text" id="oznakaValute" class="form-control"
 							placeholder="Unesi oznaku valute" name="oznakaValute"
 							ng-Model="novoZaglavlje.oznakaValute">
-					</div>
-				</div>
-
-				<div class="form-group">
-					<label for="vrednostRobe" class="col-sm-3 control-label">Vrednost
-						robe</label>
-					<div class="col-sm-9">
-						<input type="number" id="vrednostRobe" class="form-control"
-							placeholder="Unesi vrednost robe" name="vrednostRobe"
-							ng-Model="novoZaglavlje.vrijednostRobe">
-					</div>
-				</div>
-
-				<div class="form-group">
-					<label for="vrednostUsluga" class="col-sm-3 control-label">Vrednost
-						usluga</label>
-					<div class="col-sm-9">
-						<input type="number" id="vrednostUsluga" class="form-control"
-							placeholder="Unesi vrednost usluga" name="vrednostUsluga"
-							ng-Model="novoZaglavlje.vrijednostUsluga">
-					</div>
-				</div>
-
-				<div class="form-group">
-					<label for="ukupanRabata" class="col-sm-3 control-label">Ukupan
-						rabat</label>
-					<div class="col-sm-9">
-						<input type="number" id="ukupanRabata" class="form-control"
-							placeholder="Unesi ukupan rabat" name="ukupanRabata"
-							ng-Model="novoZaglavlje.ukupanRabat">
 					</div>
 				</div>
 				<!-- /.form-group -->

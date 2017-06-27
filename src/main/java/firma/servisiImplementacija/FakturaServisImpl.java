@@ -82,6 +82,10 @@ public class FakturaServisImpl implements FakturaServis {
 		sf.iznosRabata = sf.vrijednost.multiply(sf.procenatRabata.divide(new BigDecimal(100)));
 		sf.umanjenoZaRabat = sf.vrijednost.add(sf.iznosRabata.negate());
 		sf.ukupanPorez = sf.umanjenoZaRabat.multiply(new BigDecimal(0.17));
+		f.zaglavljeFakture.ukupanRabat = f.zaglavljeFakture.ukupanRabat.add(sf.iznosRabata);
+		f.zaglavljeFakture.ukupanPorez = f.zaglavljeFakture.ukupanPorez.add(sf.ukupanPorez);
+		f.zaglavljeFakture.ukupnoRobaIUsluge = f.zaglavljeFakture.ukupnoRobaIUsluge.add(sf.vrijednost);
+		f.zaglavljeFakture.iznosZaUplatu = f.zaglavljeFakture.ukupnoRobaIUsluge.add(f.zaglavljeFakture.ukupanPorez).subtract(f.zaglavljeFakture.ukupanRabat);
 		f.stavke.add(sf);
 		sf.faktura = f;
 		return new ResponseEntity<Faktura>(fakturaRepozitorijum.save(f), HttpStatus.CREATED);
