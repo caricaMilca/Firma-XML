@@ -45,7 +45,7 @@ public class NalogServisImpl implements NalogServis {
 		String idPoruke = UUID.randomUUID().toString();
 		Nalog n = new Nalog(idPoruke, zf.nazivKupca, "svrha placanja", f.naziv, zf.datumRacuna, zf.datumValute,
 				f.racuni.iterator().next().brojRacuna, BigInteger.valueOf(97L), "11111111111111111111",
-				zf.uplataNaRacun, BigInteger.valueOf(97L), "2222222222222222222222", zf.iznosZaUplatu, zf.oznakaValute,
+				zf.uplataNaRacun, BigInteger.valueOf(97L), "22222222222222222222", zf.iznosZaUplatu, zf.oznakaValute,
 				hitno);
 		if (n.getIznos().compareTo(BigDecimal.valueOf(250000L)) > 1)
 			n.setHitno(true);
@@ -54,7 +54,7 @@ public class NalogServisImpl implements NalogServis {
 
 		String uri = "http://localhost:" + f.racuni.iterator().next().banka.port + "/ws";
 		System.out.println(uri + " aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
-		boolean parsovano = validator.parse(n, "nalog");
+		boolean parsovano = validator.parse(nalogZahtjev, "nalog");
 		System.out.println("parsovano +   " + parsovano);
 		if(!parsovano)
 			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);

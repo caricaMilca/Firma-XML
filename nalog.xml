@@ -1,18 +1,20 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<nalog xmlns="http://paket/nalog">
-    <idPoruke>71f41e12-2465-4b40-8f25-21056235dfcd</idPoruke>
-    <duznik>adsasd</duznik>
-    <svrhaPlacanja>svrha placanja</svrhaPlacanja>
-    <primalac>Ceks1</primalac>
-    <datumNaloga>2017-06-27</datumNaloga>
-    <datumValute>2017-06-27</datumValute>
-    <racunDuznika>124-2222222222222-2</racunDuznika>
-    <modelZaduzenja>97</modelZaduzenja>
-    <pozivNaBrojZaduzenja>11111111111111111111</pozivNaBrojZaduzenja>
-    <racunPrimaoca>123-1111111111111-1</racunPrimaoca>
-    <modelOdobrenja>97</modelOdobrenja>
-    <pozivNaBrojOdobrenja>2222222222222222222222</pozivNaBrojOdobrenja>
-    <iznos>378.89</iznos>
-    <oznakaValute>dasdassd</oznakaValute>
-    <hitno>true</hitno>
-</nalog>
+<getNalogRequest xmlns="http://paket/nalog">
+    <nalog>
+        <idPoruke>6eaafa50-252b-4d5f-8403-dfb73100fd24</idPoruke>
+        <duznik>hohdsa</duznik>
+        <svrhaPlacanja>svrha placanja</svrhaPlacanja>
+        <primalac>Ceks1</primalac>
+        <datumNaloga>2017-06-28</datumNaloga>
+        <datumValute>2017-06-28</datumValute>
+        <racunDuznika>124222222222222222</racunDuznika>
+        <modelZaduzenja>97</modelZaduzenja>
+        <pozivNaBrojZaduzenja>11111111111111111111</pozivNaBrojZaduzenja>
+        <racunPrimaoca>123111111111111111</racunPrimaoca>
+        <modelOdobrenja>97</modelOdobrenja>
+        <pozivNaBrojOdobrenja>22222222222222222222</pozivNaBrojOdobrenja>
+        <iznos>46.68</iznos>
+        <oznakaValute>rasda</oznakaValute>
+        <hitno>true</hitno>
+    </nalog>
+</getNalogRequest>

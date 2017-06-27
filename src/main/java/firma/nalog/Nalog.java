@@ -62,7 +62,7 @@ import xmlTransformacije.Adapter1;
  * 
  * 
  */
-@XmlRootElement
+@XmlRootElement(name = "nalog")
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "nalog", propOrder = {
     "idPoruke",
