@@ -5,6 +5,7 @@
 	<xs:import namespace="http://paket/tipovi" schemaLocation="tipovi.xsd" />
 	<xs:element name="getZahtevRequest">
 		<xs:complexType>
+		
 			<xs:sequence>
 				<xs:element name="zahtev" type="nza:zahtev" />
 			</xs:sequence>

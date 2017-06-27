@@ -1,10 +1,9 @@
 package firma.servisi;
 
-import org.springframework.http.ResponseEntity;
-
+import firma.presek.GetPresekResponse;
 import firma.zahtev.Zahtev;
 
 public interface ZahtevServis {
 
-	ResponseEntity<?> posaljiZahtev(Zahtev z);
+	GetPresekResponse posaljiZahtev(Zahtev z);
 }

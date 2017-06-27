@@ -12,10 +12,17 @@ import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.sql.Date;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlSchemaType;
+import javax.xml.bind.annotation.XmlTransient;
 import javax.xml.bind.annotation.XmlType;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
@@ -55,6 +62,7 @@ import xmlTransformacije.Adapter1;
  * 
  * 
  */
+@XmlRootElement
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "nalog", propOrder = {
     "idPoruke",
@@ -73,8 +81,16 @@ import xmlTransformacije.Adapter1;
     "oznakaValute",
     "hitno"
 })
+@Entity
 public class Nalog {
 
+	
+	@XmlTransient
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name = "NALOG_ID")
+	private Long id;
+	
     @XmlElement(required = true)
     protected String idPoruke;
     @XmlElement(required = true)
