@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <getNalogRequest xmlns="http://paket/nalog">
     <nalog>
-        <idPoruke>a1417e28-ab90-4dc0-b7bf-5fa3ce9a4e94</idPoruke>
-        <duznik>sdfsdf</duznik>
+        <idPoruke>6592382c-13c1-4815-a431-41255913e534</idPoruke>
+        <duznik>mm</duznik>
         <svrhaPlacanja>svrha placanja</svrhaPlacanja>
         <primalac>Ceks1</primalac>
         <datumNaloga>2017-06-28</datumNaloga>
@@ -13,8 +13,8 @@
         <racunPrimaoca>123111111111111111</racunPrimaoca>
         <modelOdobrenja>97</modelOdobrenja>
         <pozivNaBrojOdobrenja>22222222222222222222</pozivNaBrojOdobrenja>
-        <iznos>52.21</iznos>
+        <iznos>441.70</iznos>
         <oznakaValute>rsd</oznakaValute>
-        <hitno>true</hitno>
+        <hitno>false</hitno>
     </nalog>
 </getNalogRequest>

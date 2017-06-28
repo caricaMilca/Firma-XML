@@ -4,7 +4,8 @@
 	xmlns:nzp="http://paket/tipovi">
 	<xs:simpleType name="broj2">
 		<xs:restriction base="xs:integer">
-		           
+			<xs:minInclusive value="1" />
+			<xs:maxInclusive value="99" />
 		</xs:restriction>
 	</xs:simpleType>
 
