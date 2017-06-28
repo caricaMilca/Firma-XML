@@ -10,7 +10,7 @@
 						<th>Naziv dobavljaca</th>
 						<th>Naziv kupca</th>
 						<th>Datum racuna</th>
-						<th>Ukupno roba i usluge</th>
+						<th>Iznos za uplatu</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -20,7 +20,7 @@
 						<td>{{faktura.zaglavljeFakture.nazivDobavljaca}}</td>
 						<td>{{faktura.zaglavljeFakture.nazivKupca}}</td>
 						<td>{{faktura.zaglavljeFakture.datumRacuna}}</td>
-						<td>{{faktura.zaglavljeFakture.ukupnoRobaIUsluge}}
+						<td>{{faktura.zaglavljeFakture.iznosZaUplatu}}
 							{{faktura.zaglavljeFakture.oznakaValute}}</td>
 						<td>Hitno:<select ng-model="faktura.zaglavljeFakture.hitno">
 								<option value="false" selected>Ne</option>

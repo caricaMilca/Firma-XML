@@ -4,7 +4,7 @@
 	xmlns:nzp="http://paket/tipovi">
 	<xs:simpleType name="broj2">
 		<xs:restriction base="xs:integer">
-			<xs:pattern value="\d{2}" />
+		           
 		</xs:restriction>
 	</xs:simpleType>
 

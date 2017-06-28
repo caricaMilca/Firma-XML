@@ -45,12 +45,12 @@
 					</tr>
 				</thead>
 				<tbody>
-					<tr ng-repeat="stavka in presek.stavkaPreseka track by stavka.id">
-						<td>{{presek.stavkaPreseka.duznik}}</td>
-						<td>{{presek.stavkaPreseka.racunDuznika}}</td>
-						<td>{{presek.stavkaPreseka.primalac}}</td>
-						<td>{{presek.stavkaPreseka.racunPrimaoca}}</td>
-						<td>{{presek.stavkaPreseka.iznos}}</td>
+					<tr ng-repeat="stavka in presek.stavkaPreseka">
+						<td>{{stavka.duznik}}</td>
+						<td>{{stavka.racunDuznika}}</td>
+						<td>{{stavka.primalac}}</td>
+						<td>{{stavka.racunPrimaoca}}</td>
+						<td>{{stavka.iznos}}</td>
 					</tr>
 				</tbody>
 			</table>
