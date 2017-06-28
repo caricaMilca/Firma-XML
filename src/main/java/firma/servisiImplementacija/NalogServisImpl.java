@@ -53,12 +53,13 @@ public class NalogServisImpl implements NalogServis {
 		nalogZahtjev.setNalog(n);
 
 		String uri = "http://localhost:" + f.racuni.iterator().next().banka.port + "/ws";
-		System.out.println(uri + " aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
+		
 		boolean parsovano = validator.parse(nalogZahtjev, "nalog");
-		System.out.println("parsovano +   " + parsovano);
 		if(!parsovano)
 			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+		
 		webServiceTemplate.setDefaultUri(uri);
+		System.out.println("-----Poslat nalog-----");
 		webServiceTemplate.marshalSendAndReceive(nalogZahtjev);
 		return new ResponseEntity<>(HttpStatus.OK) ;
 	}

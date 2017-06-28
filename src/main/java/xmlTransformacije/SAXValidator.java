@@ -41,7 +41,6 @@ public class SAXValidator extends DefaultHandler {
 			jaxbMarshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
 			jaxbMarshaller.marshal(object, file);
 			parserFactory.setSchema(schema);
-			System.out.println("Da li uklaziiii + aaaaaaaaaaaaaaaaaaaaaaa");
 			Source xmlFile = new StreamSource(file);
 			Validator validator = schema.newValidator();
 			validator.validate(xmlFile);

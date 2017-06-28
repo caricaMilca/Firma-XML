@@ -14,6 +14,7 @@ import firma.repozitorijumi.RacunRepozitorijum;
 import firma.servisi.ZahtevServis;
 import firma.zahtev.GetZahtevRequest;
 import firma.zahtev.Zahtev;
+import xmlTransformacije.SAXValidator;
 
 @Service
 @Transactional
@@ -27,20 +28,26 @@ public class ZahtevServisImpl implements ZahtevServis {
 
 	@Autowired
 	WebServiceTemplate webServiceTemplate;
+	
+	SAXValidator validator = new SAXValidator();
 
 	@Override
 	public GetPresekResponse posaljiZahtev(Zahtev z) {
-		System.out.println("firma zahtev servis impl");
 		Racun r = racunRep.findByBrojRacuna(z.getBrojRacuna());
 		Banka b = r.banka;
-		System.out.println(z.getDatumZahteva());
+
 		GetZahtevRequest zahtev = new GetZahtevRequest();
 
 		zahtev.setZahtev(z);
-		System.out.println(zahtev.getZahtev().getDatumZahteva());
 		String uri = "http://localhost:" + b.port + "/ws";
-		System.out.println(" uri: " + uri);
 		webServiceTemplate.setDefaultUri(uri);
+		
+		boolean parsovano = validator.parse(zahtev, "zahtev");
+		if(!parsovano){
+			System.out.println("----Nije validan zahtev----");
+			return null;
+		}
+		System.out.println("------Poslat zahtev------");
 		GetPresekResponse gp = (GetPresekResponse) webServiceTemplate.marshalSendAndReceive(zahtev);
 
 		return gp;

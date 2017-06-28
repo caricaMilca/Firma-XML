@@ -107,6 +107,7 @@ public class FakturaServisImpl implements FakturaServis {
 		restTemplate.postForObject(putanja, f, Faktura.class);
 		zf.fakture.remove(f);
 		zaglavljeFaktureRepozitorijum.save(zf);
+		System.out.println("-----Poslata faktura-----");
 		return new ResponseEntity<>(HttpStatus.OK);
 	}
 
@@ -116,6 +117,7 @@ public class FakturaServisImpl implements FakturaServis {
 		for (StavkaFakture s : f.stavke) {
 		    s.faktura = f;
 		}
+		System.out.println("-----Primljena faktura-----");
 		fakturaRepozitorijum.save(f);
 		return new ResponseEntity<>(HttpStatus.ACCEPTED);
 	}
