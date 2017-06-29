@@ -18,15 +18,12 @@ app.config(function($routeProvider, $locationProvider) {
 	}).when('/zahtev/zahtevi', {
 		templateUrl : '/zahtev/noviZahtev.html',
 		controller : 'zahtevController'
-<<<<<<< HEAD
 	}).when('/htmlFaktura', {
 		templateUrl : '/faktura.html'
 	}).when('/pdfFaktura', {
 		templateUrl : '/faktura.pdf'
-=======
 	}).when('/zahtev/presek', {
 		templateUrl : '/zahtev/presek.html',
 		controller : 'zahtevController'
->>>>>>> 7b0de61a7b96005824e60e0aee49d707616fb1b2
 	})
 });
