@@ -45,11 +45,13 @@ app.controller('zahtevController', [
 					}
 				});
 			}
-			
+
 			$scope.posaljiZahtev = function() {
-				zahtevService.posaljiZahtev($scope.zahtev)
-						.then(function(response) {
+				zahtevService.posaljiZahtev($scope.zahtev).then(
+						function(response) {
+							$rootScope.presek = response.data;
+							$location.path('/zahtev/presek');
 						});
 			}
-			
+
 		} ]);

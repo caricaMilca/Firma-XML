@@ -7,7 +7,6 @@ app.factory('zahtevService', function zahtevService($http) {
 		return $http.post("/zahtevi/posaljiZahtev",
 				zahtev);
 	}
-
 	
 	
 	return zahtevService;

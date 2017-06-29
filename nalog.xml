@@ -1,8 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <getNalogRequest xmlns="http://paket/nalog">
     <nalog>
+<<<<<<< HEAD
         <idPoruke>b6797e52-4218-4549-b20f-349f32130f31</idPoruke>
         <duznik>kupac</duznik>
+=======
+        <idPoruke>6592382c-13c1-4815-a431-41255913e534</idPoruke>
+        <duznik>mm</duznik>
+>>>>>>> 7b0de61a7b96005824e60e0aee49d707616fb1b2
         <svrhaPlacanja>svrha placanja</svrhaPlacanja>
         <primalac>Ceks1</primalac>
         <datumNaloga>2017-06-29</datumNaloga>
@@ -13,7 +18,11 @@
         <racunPrimaoca>123111111111111111</racunPrimaoca>
         <modelOdobrenja>97</modelOdobrenja>
         <pozivNaBrojOdobrenja>22222222222222222222</pozivNaBrojOdobrenja>
+<<<<<<< HEAD
         <iznos>313.44</iznos>
+=======
+        <iznos>441.70</iznos>
+>>>>>>> 7b0de61a7b96005824e60e0aee49d707616fb1b2
         <oznakaValute>rsd</oznakaValute>
         <hitno>false</hitno>
     </nalog>

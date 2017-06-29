@@ -79,12 +79,18 @@ public class NalogServisImpl implements NalogServis {
 		GetNalogRequest nalogZahtjev = new GetNalogRequest();
 		nalogZahtjev.setNalog(n);
 		String uri = "http://localhost:" + f.racuni.iterator().next().banka.port + "/ws";
-		System.out.println(uri + " aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
+		
 		boolean parsovano = validator.parse(nalogZahtjev, "nalog");
+<<<<<<< HEAD
 		System.out.println("parsovano +   " + parsovano);
 		if (!parsovano)
+=======
+		if(!parsovano)
+>>>>>>> 7b0de61a7b96005824e60e0aee49d707616fb1b2
 			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+		
 		webServiceTemplate.setDefaultUri(uri);
+<<<<<<< HEAD
 		GetNalogResponse nr = (GetNalogResponse) webServiceTemplate.marshalSendAndReceive(nalogZahtjev);
 		if (nr == null)
 			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
@@ -146,6 +152,11 @@ public class NalogServisImpl implements NalogServis {
 		renderer.finishPDF();
 		os.close();
 		return new ResponseEntity<>(HttpStatus.CREATED);
+=======
+		System.out.println("-----Poslat nalog-----");
+		webServiceTemplate.marshalSendAndReceive(nalogZahtjev);
+		return new ResponseEntity<>(HttpStatus.OK) ;
+>>>>>>> 7b0de61a7b96005824e60e0aee49d707616fb1b2
 	}
 
 }

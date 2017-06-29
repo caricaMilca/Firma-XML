@@ -10,8 +10,12 @@
 						<th>Naziv dobavljaca</th>
 						<th>Naziv kupca</th>
 						<th>Datum racuna</th>
+<<<<<<< HEAD
 						<th>Ukupno roba i usluge</th>
 						<th>Status fakture</th>
+=======
+						<th>Iznos za uplatu</th>
+>>>>>>> 7b0de61a7b96005824e60e0aee49d707616fb1b2
 					</tr>
 				</thead>
 				<tbody>
@@ -21,12 +25,13 @@
 						<td>{{faktura.zaglavljeFakture.nazivDobavljaca}}</td>
 						<td>{{faktura.zaglavljeFakture.nazivKupca}}</td>
 						<td>{{faktura.zaglavljeFakture.datumRacuna}}</td>
-						<td>{{faktura.zaglavljeFakture.ukupnoRobaIUsluge}}
+						<td>{{faktura.zaglavljeFakture.iznosZaUplatu}}
 							{{faktura.zaglavljeFakture.oznakaValute}}</td>
 						<td>Hitno:<select ng-model="faktura.zaglavljeFakture.hitno">
 								<option value="false" selected>Ne</option>
 								<option value="true">Da</option>
 						</select></td>
+<<<<<<< HEAD
 						<td>{{faktura.status}}</td>
 						<td><button type="submit" ng-click="kreirajHTML()"
 								ng-disabled="!selectedFaktura" class="btn btn-primary btn-block">HTML</button></td>
@@ -35,6 +40,13 @@
 						<td><button type="submit" ng-click="posaljiNalog()"
 								ng-disabled="!selectedFaktura && selectedFaktura.status == 'POSLATA'"
 								class="btn btn-primary btn-block">Posalji nalog</button></td>
+=======
+					</tr>
+					<tr>
+						<td><button type="submit" ng-click="posaljiNalog()"
+								ng-disabled="!selectedFaktura" class="btn btn-primary btn-block">Posalji
+								nalog</button></td>
+>>>>>>> 7b0de61a7b96005824e60e0aee49d707616fb1b2
 					</tr>
 				</tbody>
 			</table>

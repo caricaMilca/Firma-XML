@@ -31,7 +31,7 @@
             <xs:element name="racunPrimaoca" type="xsT:slovo18" />
             <xs:element name="modelOdobrenja" type="xsT:broj2" />
             <xs:element name="pozivNaBrojOdobrenja" type="xsT:slovo20" />
-            <xs:element name="iznos" type="xsT:decimalni5-2" />
+            <xs:element name="iznos" type="xsT:decimalni15-2" />
             <xs:element name="oznakaValute" type="xsT:slovo3" />
             <xs:element name="hitno" type="xs:boolean" />
         </xs:sequence>

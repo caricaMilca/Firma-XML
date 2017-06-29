@@ -4,15 +4,17 @@
 	<div class="container" id="razmak">
 		<form class="form-horizontal" role="blabla" name="myForm2" novalidate>
 			<div class="form-group">
-				<label for="brojRacuna" class="col-sm-3 control-label">Broj Racuna</label>
+				<label for="brojRacuna" class="col-sm-3 control-label">Broj
+					Racuna</label>
 				<div class="col-sm-9">
 					<input type="text" id="nazivRobeIliUsluge" class="form-control"
-						placeholder="Unesi broj Racuna" name="brojRacuna"
+						min="1" max="99" placeholder="Unesi broj Racuna" name="brojRacuna"
 						ng-Model="zahtev.brojRacuna">
 				</div>
 			</div>
 			<div class="form-group">
-				<label for="redniBrojPreseka" class="col-sm-3 control-label">Redni broj preseka</label>
+				<label for="redniBrojPreseka" class="col-sm-3 control-label">Redni
+					broj preseka</label>
 				<div class="col-sm-9">
 					<input type="number" id="kolicina" class="form-control"
 						placeholder="Unesi redni broj preseka" name="redniBrojPreseka"
@@ -20,12 +22,14 @@
 				</div>
 			</div>
 			<div class="form-group">
-				<label>Datum:</label> <input type="date" name="datum"
-					ng-Model="zahtev.datumZahteva" class="form-control"
-					placeholder="Datum" />
+				<label for="datum" class="col-sm-3 control-label">Datum</label>
+				<div class="col-sm-9">
+					<input type="date" id="datumZahteva" ng-Model="zahtev.datumZahteva"
+						class="form-control" autofocus>
+				</div>
 			</div>
 			<div class="modal-footer" ng-controller="zahtevController">
-				
+
 				<button type="submit" ng-click="posaljiZahtev()"
 					class="btn btn-primary">Posalji</button>
 			</div>
