@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xsl:stylesheet version="2.0"
-	xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+	xmlns:xsl="http://www.w3.org/1999/XSL/Transform"  xmlns:n="http://paket/nalog" xmlns:t="http://paket/tipovi" >
 	<xsl:output method="xml" indent="yes" />
 	<xsl:template match="/">
 		<html>
@@ -48,63 +48,63 @@
 				<h1>Nalog</h1>
 				<p>
 					Id poruke:
-					<xsl:value-of select="nalog/idPoruke" />
+					<xsl:value-of select="//n:idPoruke" />
 				</p>
 				<p>
 					Duznik:
-					<xsl:value-of select="nalog/duznik" />
+					<xsl:value-of select="//n:duznik" />
 				</p>
 				<p>
 					Svrha placanja:
-					<xsl:value-of select="nalog/svrhaPlacanja" />
+					<xsl:value-of select="//n:svrhaPlacanja" />
 				</p>
 				<p>
 					Primalac:
-					<xsl:value-of select="nalog/primalac" />
+					<xsl:value-of select="//n:primalac" />
 				</p>
 				<p>
 					Datum naloga:
-					<xsl:value-of select="nalog/datumNaloga" />
+					<xsl:value-of select="//n:datumNaloga" />
 				</p>
 				<p>
 					Datum valute:
-					<xsl:value-of select="nalog/datumValute" />
+					<xsl:value-of select="//n:datumValute" />
 				</p>
 				<p>
 					Racun duznika:
-					<xsl:value-of select="nalog/racunDuznika" />
+					<xsl:value-of select="//n:racunDuznika" />
 				</p>
 				<p>
 					Model zaduzenja:
-					<xsl:value-of select="nalog/modelZaduzenja" />
+					<xsl:value-of select="//n:modelZaduzenja" />
 				</p>
 				<p>
 					Poziv na broj zaduzenja:
-					<xsl:value-of select="nalog/pozivNaBrojZaduzenja" />
+					<xsl:value-of select="//n:pozivNaBrojZaduzenja" />
 				</p>
 				<p>
 					Racun primaoca:
-					<xsl:value-of select="nalog/racunPrimaoca" />
+					<xsl:value-of select="//n:racunPrimaoca" />
 				</p>
 				<p>
 					Model odobrenja:
-					<xsl:value-of select="nalog/modelOdobrenja" />
+					<xsl:value-of select="//n:modelOdobrenja" />
 				</p>
 				<p>
 					Poziv na broj odobrenja:
-					<xsl:value-of select="nalog/pozivNaBrojOdobrenja" />
+					<xsl:value-of select="//n:pozivNaBrojOdobrenja" />
 				</p>
 				<p>
 					Iznos:
-					<xsl:value-of select="nalog/iznos" />
+					<xsl:value-of select="//n:iznos" />
 				</p>
 				<p>
 					Oznaka valute:
-					<xsl:value-of select="nalog/oznakaValute" />
+					<xsl:value-of select="//n:oznakaValute" />
 				</p>
 				<p>
 					Hitno ?
-					<xsl:value-of select="nalog/hitno" />
+					<xsl:value-of select="//n:hitno" />
 				</p>
 			</body>
 		</html>

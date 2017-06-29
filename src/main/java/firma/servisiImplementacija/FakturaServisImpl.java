@@ -106,7 +106,8 @@ public class FakturaServisImpl implements FakturaServis {
 		Firma m = firmaRepozitorijum.findByPib(f.zaglavljeFakture.pibKupca);
 		final String putanja = "http://localhost:" + m.port + "/faktura/primiFakturu";
 		RestTemplate restTemplate = new RestTemplate();
-		restTemplate.postForObject(putanja, f, Faktura.class);
+		restTemplate.postForObject(putanja, f, Faktura.class);		
+		zf.iznosZaUplatu = new BigDecimal(0);		
 		zf.fakture.remove(f);
 		zaglavljeFaktureRepozitorijum.save(zf);
 		System.out.println("-----Poslata faktura-----");

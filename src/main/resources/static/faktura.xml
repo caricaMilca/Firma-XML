@@ -2,15 +2,26 @@
 <?xml-stylesheet type="text/xsl" href="faktura.xsl"?>
 <faktura>
     <stavke>
-        <nazivRobeIliUsluge>mm</nazivRobeIliUsluge>
-        <kolicina>22.00</kolicina>
-        <jedinicaMjere>mm</jedinicaMjere>
-        <jedinicnaCijena>22.00</jedinicnaCijena>
-        <vrijednost>484.00</vrijednost>
-        <procenatRabata>2.00</procenatRabata>
-        <iznosRabata>9.68</iznosRabata>
-        <umanjenoZaRabat>474.32</umanjenoZaRabat>
-        <ukupanPorez>80.63</ukupanPorez>
+        <nazivRobeIliUsluge>sdf</nazivRobeIliUsluge>
+        <kolicina>23.00</kolicina>
+        <jedinicaMjere>n</jedinicaMjere>
+        <jedinicnaCijena>23.00</jedinicnaCijena>
+        <vrijednost>529.00</vrijednost>
+        <procenatRabata>23.00</procenatRabata>
+        <iznosRabata>121.67</iznosRabata>
+        <umanjenoZaRabat>407.33</umanjenoZaRabat>
+        <ukupanPorez>69.25</ukupanPorez>
+    </stavke>
+    <stavke>
+        <nazivRobeIliUsluge>dsf</nazivRobeIliUsluge>
+        <kolicina>23.00</kolicina>
+        <jedinicaMjere>m</jedinicaMjere>
+        <jedinicnaCijena>23.00</jedinicnaCijena>
+        <vrijednost>529.00</vrijednost>
+        <procenatRabata>23.00</procenatRabata>
+        <iznosRabata>121.67</iznosRabata>
+        <umanjenoZaRabat>407.33</umanjenoZaRabat>
+        <ukupanPorez>69.25</ukupanPorez>
     </stavke>
     <zaglavljeFakture>
         <nazivDobavljaca>Ceks</nazivDobavljaca>
@@ -20,13 +31,13 @@
         <adresaKupca>Ceksa Ceksovskog 10</adresaKupca>
         <pibKupca>5432154321</pibKupca>
         <datumRacuna>2017-06-29</datumRacuna>
-        <ukupnoRobaIUsluge>484.00</ukupnoRobaIUsluge>
-        <ukupanRabat>9.68</ukupanRabat>
-        <ukupanPorez>80.63</ukupanPorez>
+        <ukupnoRobaIUsluge>1058.00</ukupnoRobaIUsluge>
+        <ukupanRabat>243.34</ukupanRabat>
+        <ukupanPorez>138.50</ukupanPorez>
         <oznakaValute>rsd</oznakaValute>
-        <iznosZaUplatu>554.95</iznosZaUplatu>
+        <iznosZaUplatu>953.16</iznosZaUplatu>
         <uplataNaRacun>123111111111111111</uplataNaRacun>
         <datumValute>2017-06-29</datumValute>
     </zaglavljeFakture>
-    <status>POSLATA</status>
+    <status>NEPOSLATA</status>
 </faktura>

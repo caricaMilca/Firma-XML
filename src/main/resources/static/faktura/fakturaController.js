@@ -58,6 +58,17 @@ app
 													}
 												});
 							}
+							
+							function preuzmiZaglavlja2() {
+								fakturaService
+								.preuzmiZaglavlja()
+								.then(
+										function(response) {
+											if (response.data) {
+												$scope.svaZaglavlja = response.data;
+											}
+										});
+							}
 
 							$scope.preuzmiFirme = function() {
 								fakturaService
@@ -225,7 +236,7 @@ app
 												function(response) {
 													if (response.status == 201) {
 														var win = window.open();
-														win.location = "C:/Users/FixMe/Documents/8%20semestar/WebIXML/Firma-XML/src/main/resources/static/faktura.pdf";
+														win.location = "file:///C:/Users/FixMe/Documents/8%20semestar/WebIXML/Firma-XML/src/main/resources/static/faktura.pdf";
 
 													} else
 														ngNotify
@@ -265,7 +276,7 @@ app
 												function(response) {
 													if (response.status == 201) {
 														var win = window.open();
-														win.location = "C:/Users/FixMe/Documents/8%20semestar/WebIXML/Firma-XML/src/main/resources/static/nalog.pdf";
+														win.location = "file:///C:/Users/FixMe/Documents/8%20semestar/WebIXML/Firma-XML/src/main/resources/static/nalog.pdf";
 
 													} else
 														ngNotify
@@ -291,7 +302,8 @@ app
 																		{
 																			type : 'success'
 																		});
-														$scope.selectedZaglavlje = null;
+														$scope.preuzmiZaglavlja();
+														//$scope.selectedZaglavlje = '';
 													} else
 														ngNotify
 																.set(
@@ -320,7 +332,7 @@ app
 																		});
 														$scope
 																.preuzmiPrimljeneFakture();
-														$scope.selectedFaktura = null;
+														//$scope.selectedFaktura = null;
 													} else
 														ngNotify
 																.set(
