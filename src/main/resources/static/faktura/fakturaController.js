@@ -133,18 +133,44 @@ app.controller('fakturaController', [
 			$scope.kreirajHTML = function() {
 				fakturaService.kreirajHTML($rootScope.selectedZaglavlje.id)
 						.then(function(response) {
+							if(response.status == 201)
+							$location.path('/htmlFaktura');
+							else
+								ngNotify.set('Bezuspjesno kreiranje html-a', {
+									type : 'info'
+								});	
 						});
 			}
 
 			$scope.kreirajPDF = function() {
 				fakturaService.kreirajPDF($rootScope.selectedZaglavlje.id)
 						.then(function(response) {
+							if(response.status == 201){
+							      var win = window.open();
+							      win.location = "C:/Users/FixMe/Documents/8%20semestar/WebIXML/Firma-XML/src/main/resources/static/faktura.pdf";
+								
+							}
+							else
+								ngNotify.set('Bezuspjesno kreiranje pdf-a', {
+									type : 'info'
+								});	
+							
 						});
 			}
 			
 			$scope.posaljiFakturu = function() {
 				fakturaService.posaljiFakturu($rootScope.selectedZaglavlje.id)
 						.then(function(response) {
+							if(response.status == 200) {
+								ngNotify.set('Uspjesno prosledjena faktura', {
+									type : 'success'
+								});
+								$scope.selectedZaglavlje = null;
+							}
+							else 
+								ngNotify.set('Bezuspjesno prosedjena faktura', {
+									type : 'info'
+								});
 						});
 			}
 			
@@ -153,6 +179,17 @@ app.controller('fakturaController', [
 					$scope.selectedFaktura.zaglavljeFakture.hitno = false;
 				fakturaService.posaljiNalog($rootScope.selectedFaktura.id, $scope.selectedFaktura.zaglavljeFakture.hitno)
 						.then(function(response) {
+							if(response.status == 200){
+								ngNotify.set('Uspjesno prosledjen nalog', {
+									type : 'success'
+								});
+								$scope.preuzmiPrimljeneFakture();
+								$scope.selectedFaktura = null;
+							}
+							else 
+								ngNotify.set('Bezuspjesno prosedjen nalog', {
+									type : 'info'
+								});
 						});
 			}
 

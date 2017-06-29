@@ -141,13 +141,13 @@
 								<xsl:value-of select="kolicina" />
 							</td>
 							<td>
-								<xsl:value-of select="jedinicaMere" />
+								<xsl:value-of select="jedinicaMjere" />
 							</td>
 							<td>
-								<xsl:value-of select="jedinicnaCena" />
+								<xsl:value-of select="jedinicnaCijena" />
 							</td>
 							<td>
-								<xsl:value-of select="vrednost" />
+								<xsl:value-of select="vrijednost" />
 							</td>
 							<td>
 								<xsl:value-of select="iznosRabata" />

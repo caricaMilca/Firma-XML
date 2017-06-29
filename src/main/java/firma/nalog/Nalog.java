@@ -124,9 +124,7 @@ public class Nalog {
     @XmlElement(required = true)
     protected String oznakaValute;
     protected boolean hitno;
-
-  
-
+    
 	public Nalog(String idPoruke, String duznik, String svrhaPlacanja, String primalac,
 			Date datumNaloga, Date datumValute, String racunDuznika,
 			BigInteger modelZaduzenja, String pozivNaBrojZaduzenja, String racunPrimaoca, BigInteger modelOdobrenja,

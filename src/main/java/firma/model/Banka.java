@@ -32,6 +32,7 @@ public class Banka {
 	@Column(unique = true, nullable = false) //4 velika slova
 	public String banka4kod;
 	
+	@Column(unique = true, nullable = false) 
 	public String swiftKod; //8 : banka4kod + drzavaOznaka + NMOznaka
 
 	public String naziv;
@@ -42,6 +43,7 @@ public class Banka {
 	@Enumerated(EnumType.STRING)
 	public TipBanke tip;
 	
+	@Column(unique = true, nullable = false) 
 	public String port;
 	
 	@XmlTransient

@@ -18,5 +18,9 @@ app.config(function($routeProvider, $locationProvider) {
 	}).when('/zahtev/zahtevi', {
 		templateUrl : '/zahtev/noviZahtev.html',
 		controller : 'zahtevController'
+	}).when('/htmlFaktura', {
+		templateUrl : '/faktura.html'
+	}).when('/pdfFaktura', {
+		templateUrl : '/faktura.pdf'
 	})
 });

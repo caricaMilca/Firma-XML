@@ -38,6 +38,8 @@ app
 						'SessionService',
 						function($rootScope, $scope, $location,ngNotify, sessionService) {
 							
+							if($rootScope.korisnik == null)
+								$location.path('login');
 							
 							$scope.logout = function(){
 								sessionService.logout().then(function(response){

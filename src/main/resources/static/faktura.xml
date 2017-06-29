@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<?xml-stylesheet type="text/xsl" href="faktura.xsl"?>
+<faktura>
+    <stavke>
+        <nazivRobeIliUsluge>yhe</nazivRobeIliUsluge>
+        <kolicina>5.00</kolicina>
+        <jedinicaMjere>6</jedinicaMjere>
+        <jedinicnaCijena>57.00</jedinicnaCijena>
+        <vrijednost>285.00</vrijednost>
+        <procenatRabata>6.00</procenatRabata>
+        <iznosRabata>17.10</iznosRabata>
+        <umanjenoZaRabat>267.90</umanjenoZaRabat>
+        <ukupanPorez>45.54</ukupanPorez>
+    </stavke>
+    <zaglavljeFakture>
+        <nazivDobavljaca>Ceks</nazivDobavljaca>
+        <adresaDobavljaca>Ceksa Ceksovskog 9</adresaDobavljaca>
+        <pibDobavljaca>1234512345</pibDobavljaca>
+        <nazivKupca>kupac</nazivKupca>
+        <adresaKupca>kupac</adresaKupca>
+        <pibKupca>5432154321</pibKupca>
+        <datumRacuna>2017-06-29</datumRacuna>
+        <ukupnoRobaIUsluge>285.00</ukupnoRobaIUsluge>
+        <ukupanRabat>17.10</ukupanRabat>
+        <ukupanPorez>45.54</ukupanPorez>
+        <oznakaValute>rsd</oznakaValute>
+        <iznosZaUplatu>313.44</iznosZaUplatu>
+        <uplataNaRacun>123111111111111111</uplataNaRacun>
+        <datumValute>2017-06-29</datumValute>
+    </zaglavljeFakture>
+    <status>NEPOSLATA</status>
+</faktura>

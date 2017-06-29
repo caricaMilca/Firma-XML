@@ -5,6 +5,8 @@ import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -33,6 +35,9 @@ public class Faktura {
 
 	@ManyToOne
 	public ZaglavljeFakture zaglavljeFakture;
+	
+	@Enumerated(EnumType.STRING)
+	public StatusFakture status = StatusFakture.NEPOSLATA;
 
 	public Faktura() {
 		super();

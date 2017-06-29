@@ -86,6 +86,8 @@ public class FakturaServisImpl implements FakturaServis {
 		f.zaglavljeFakture.ukupanPorez = f.zaglavljeFakture.ukupanPorez.add(sf.ukupanPorez);
 		f.zaglavljeFakture.ukupnoRobaIUsluge = f.zaglavljeFakture.ukupnoRobaIUsluge.add(sf.vrijednost);
 		f.zaglavljeFakture.iznosZaUplatu = f.zaglavljeFakture.ukupnoRobaIUsluge.add(f.zaglavljeFakture.ukupanPorez).subtract(f.zaglavljeFakture.ukupanRabat);
+	//	f.zaglavljeFakture.vrijednostRobe = f.zaglavljeFakture.vrijednostRobe.add(sf.vrijednost);
+		//f.zaglavljeFakture.vrijednostUsluga = f.zaglavljeFakture.vrijednostUsluga.add(sf.vrijednost);
 		f.stavke.add(sf);
 		sf.faktura = f;
 		return new ResponseEntity<Faktura>(fakturaRepozitorijum.save(f), HttpStatus.CREATED);

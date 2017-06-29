@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <getNalogRequest xmlns="http://paket/nalog">
     <nalog>
-        <idPoruke>6eaafa50-252b-4d5f-8403-dfb73100fd24</idPoruke>
-        <duznik>hohdsa</duznik>
+        <idPoruke>b6797e52-4218-4549-b20f-349f32130f31</idPoruke>
+        <duznik>kupac</duznik>
         <svrhaPlacanja>svrha placanja</svrhaPlacanja>
         <primalac>Ceks1</primalac>
-        <datumNaloga>2017-06-28</datumNaloga>
-        <datumValute>2017-06-28</datumValute>
+        <datumNaloga>2017-06-29</datumNaloga>
+        <datumValute>2017-06-29</datumValute>
         <racunDuznika>124222222222222222</racunDuznika>
         <modelZaduzenja>97</modelZaduzenja>
         <pozivNaBrojZaduzenja>11111111111111111111</pozivNaBrojZaduzenja>
         <racunPrimaoca>123111111111111111</racunPrimaoca>
         <modelOdobrenja>97</modelOdobrenja>
         <pozivNaBrojOdobrenja>22222222222222222222</pozivNaBrojOdobrenja>
-        <iznos>46.68</iznos>
-        <oznakaValute>rasda</oznakaValute>
-        <hitno>true</hitno>
+        <iznos>313.44</iznos>
+        <oznakaValute>rsd</oznakaValute>
+        <hitno>false</hitno>
     </nalog>
 </getNalogRequest>
