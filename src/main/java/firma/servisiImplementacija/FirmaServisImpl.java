@@ -1,5 +1,7 @@
 package firma.servisiImplementacija;
 
+import java.util.List;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,6 +37,11 @@ public class FirmaServisImpl implements FirmaServis {
 		return new ResponseEntity<Firma>(f, HttpStatus.OK);
 	}
 
-	
+	@Override
+	public ResponseEntity<List<Firma>> sviKupci() {
+		Firma firma = (Firma) sesija.getAttribute("firma");
+		List<Firma> firme = firmaRepozitorijum.findAllExceptOwn(firma.id);
+		return new ResponseEntity<List<Firma>>(firme, HttpStatus.OK);
+	}
 
 }

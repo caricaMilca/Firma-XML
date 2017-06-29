@@ -2,31 +2,31 @@
 <?xml-stylesheet type="text/xsl" href="faktura.xsl"?>
 <faktura>
     <stavke>
-        <nazivRobeIliUsluge>nke</nazivRobeIliUsluge>
-        <kolicina>76.00</kolicina>
-        <jedinicaMjere>5</jedinicaMjere>
-        <jedinicnaCijena>5.00</jedinicnaCijena>
-        <vrijednost>380.00</vrijednost>
-        <procenatRabata>5.00</procenatRabata>
-        <iznosRabata>19.00</iznosRabata>
-        <umanjenoZaRabat>361.00</umanjenoZaRabat>
-        <ukupanPorez>61.37</ukupanPorez>
+        <nazivRobeIliUsluge>mm</nazivRobeIliUsluge>
+        <kolicina>22.00</kolicina>
+        <jedinicaMjere>mm</jedinicaMjere>
+        <jedinicnaCijena>22.00</jedinicnaCijena>
+        <vrijednost>484.00</vrijednost>
+        <procenatRabata>2.00</procenatRabata>
+        <iznosRabata>9.68</iznosRabata>
+        <umanjenoZaRabat>474.32</umanjenoZaRabat>
+        <ukupanPorez>80.63</ukupanPorez>
     </stavke>
     <zaglavljeFakture>
         <nazivDobavljaca>Ceks</nazivDobavljaca>
         <adresaDobavljaca>Ceksa Ceksovskog 9</adresaDobavljaca>
         <pibDobavljaca>1234512345</pibDobavljaca>
-        <nazivKupca>Kupan</nazivKupca>
-        <adresaKupca>5gi</adresaKupca>
+        <nazivKupca>Ceks1</nazivKupca>
+        <adresaKupca>Ceksa Ceksovskog 10</adresaKupca>
         <pibKupca>5432154321</pibKupca>
         <datumRacuna>2017-06-29</datumRacuna>
-        <ukupnoRobaIUsluge>380.00</ukupnoRobaIUsluge>
-        <ukupanRabat>19.00</ukupanRabat>
-        <ukupanPorez>61.37</ukupanPorez>
+        <ukupnoRobaIUsluge>484.00</ukupnoRobaIUsluge>
+        <ukupanRabat>9.68</ukupanRabat>
+        <ukupanPorez>80.63</ukupanPorez>
         <oznakaValute>rsd</oznakaValute>
-        <iznosZaUplatu>422.37</iznosZaUplatu>
+        <iznosZaUplatu>554.95</iznosZaUplatu>
         <uplataNaRacun>123111111111111111</uplataNaRacun>
         <datumValute>2017-06-29</datumValute>
     </zaglavljeFakture>
-    <status>NEPOSLATA</status>
+    <status>POSLATA</status>
 </faktura>

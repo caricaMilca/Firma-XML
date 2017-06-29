@@ -1,0 +1,33 @@
+<div ng-controller="fakturaController" ng-init="preuzmiNaloge()">
+	<h1 id="header" class="page-header">Svi poslati nalozi</h1>
+	<p>
+	<div class="container">
+		<div class="table-responsive">
+			<table class="table">
+				<thead>
+					<tr>
+						<th>Primalac</th>
+						<th>Racun primaoca</th>
+						<th>Datum naloga</th>
+						<th>Iznos za uplatu</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="nalog in sviNalozi track by nalog.id"
+						ng-click="setSelectedNalog(nalog)"
+						ng-class="{'info' : selectedNalog.id === nalog.id}">
+						<td>{{nalog.primalac}}</td>
+						<td>{{nalog.racunPrimaoca}}</td>
+						<td>{{nalog.datumNaloga}}</td>
+						<td>{{nalog.iznos}} {{nalog.oznakaValute}}</td>
+						<td><button type="submit" ng-click="kreirajHTMLzaNalog()"
+								ng-disabled="!selectedNalog" class="btn btn-primary btn-block">HTML</button></td>
+						<td><button type="submit" ng-click="kreirajPDFzaNalog()"
+								ng-disabled="!selectedNalog" class="btn btn-primary btn-block">PDF</button></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<br />
+	</div>
+</div>

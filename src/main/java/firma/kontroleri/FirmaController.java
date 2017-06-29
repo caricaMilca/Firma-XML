@@ -1,5 +1,7 @@
 package firma.kontroleri;
 
+import java.util.List;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,24 +21,27 @@ public class FirmaController {
 
 	@Autowired
 	FirmaServis firmaServis;
-	
+
 	@Autowired
 	HttpSession sesija;
-	
-	@GetMapping(path ="/login/{port}/{lozinka}")
+
+	@GetMapping(path = "/login/{port}/{lozinka}")
 	public ResponseEntity<Firma> login(@PathVariable("port") String port, @PathVariable("lozinka") String lozinka) {
 		return firmaServis.login(port, lozinka);
 	}
-	
-	@GetMapping(path ="/logout")
+
+	@GetMapping(path = "/logout")
 	public ResponseEntity<?> logout() {
 		Firma f = (Firma) sesija.getAttribute("firma");
-		if(f == null)
+		if (f == null)
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 		sesija.invalidate();
 		return new ResponseEntity<>(HttpStatus.OK);
 	}
-	
 
-	
+	@GetMapping(path = "/sviKupci")
+	public ResponseEntity<List<Firma>> sviKupci() {
+		return firmaServis.sviKupci();
+	}
+
 }

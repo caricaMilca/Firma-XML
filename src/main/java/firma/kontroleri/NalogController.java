@@ -31,7 +31,7 @@ public class NalogController {
 		return nalogServis.posaljiNalog(id, hitno);
 	}
 	
-	@GetMapping(path = "/sveNaloga")
+	@GetMapping(path = "/sviNalozi")
 	public ResponseEntity<List<Nalog>> sveNaloga() {
 		return nalogServis.sviNalozi();
 	}

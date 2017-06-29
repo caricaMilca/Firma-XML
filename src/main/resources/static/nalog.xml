@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<?xml-stylesheet type="text/xsl" href="nalog.xsl"?>
+<nalog>
+	<idPoruke>1c2ba213-54bc-4e69-8115-971a8cece2d6</idPoruke>
+	<duznik>Ceks1</duznik>
+	<svrhaPlacanja>svrha placanja</svrhaPlacanja>
+	<primalac>Ceks1</primalac>
+	<datumNaloga>2017-06-29</datumNaloga>
+	<datumValute>2017-06-29</datumValute>
+	<racunDuznika>124222222222222222</racunDuznika>
+	<modelZaduzenja>97</modelZaduzenja>
+	<pozivNaBrojZaduzenja>11111111111111111111</pozivNaBrojZaduzenja>
+	<racunPrimaoca>123111111111111111</racunPrimaoca>
+	<modelOdobrenja>97</modelOdobrenja>
+	<pozivNaBrojOdobrenja>22222222222222222222</pozivNaBrojOdobrenja>
+	<iznos>554.95</iznos>
+	<oznakaValute>rsd</oznakaValute>
+	<hitno>false</hitno>
+</nalog>

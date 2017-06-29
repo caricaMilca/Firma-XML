@@ -25,5 +25,10 @@ app.config(function($routeProvider, $locationProvider) {
 	}).when('/zahtev/presek', {
 		templateUrl : '/zahtev/presek.html',
 		controller : 'zahtevController'
+	}).when('/nalog/nalozi', {
+		templateUrl : '/faktura/nalozi.html',
+		controller : 'fakturaController'
+	}).when('/htmlNalog', {
+		templateUrl : '/nalog.html'
 	})
 });

@@ -1,4 +1,4 @@
-<div ng-controller="fakturaController" ng-init="preuzmiZaglavlja()">
+<div ng-controller="fakturaController" ng-init="init()">
 	<h1 id="header" class="page-header">Sva zaglavlja fakture</h1>
 	<p>
 	<div class="container">
@@ -23,15 +23,7 @@
 
 
 					</tr>
-					<tr>
-						<td />
-						<td />
-						<td><button ng-disabled="iskljuci" type="submit"
-								ng-click="kreirajHTML()" class="btn btn-primary btn-block">HTML</button></td>
 
-						<td><button ng-disabled="iskljuci" type="submit"
-								ng-click="kreirajPDF()" class="btn btn-primary btn-block">PDF</button></td>
-					</tr>
 					<tr>
 						<td />
 						<td />
@@ -55,13 +47,30 @@
 	<div>
 		<div class="container" id="razmak">
 			<form class="form-horizontal" role="blabla" name="myForm" novalidate>
+
+				<!-- combo -->
+
+				<div class="form-group">
+					<label for="kupac" class="col-sm-3 control-label">Kupac</label>
+					<div class="col-sm-6">
+						<select id="kupac" disabled ng-model="kupacFirma"
+							ng-options="kupac as kupac.naziv for kupac in kupci"
+							class="form-control">
+						</select>
+					</div>
+					<div>
+						<button type="button" id="izaberi" class="btn btn-default"
+							data-toggle="modal" data-target="#izaberiKupca">Izaberi</button>
+					</div>
+				</div>
+
 				<div class="form-group">
 					<label for="nazivKupca" class="col-sm-3 control-label">Naziv
 						kupca</label>
 					<div class="col-sm-9">
-						<input type="text" id="nazivKupca" class="form-control"
+						<input type="text" id="nazivKupca" class="form-control" disabled
 							placeholder="Unesi naziv kupca" name="nazivKupca"
-							ng-Model="novoZaglavlje.nazivKupca" autofocus>
+							ng-Model="novoZaglavlje.nazivKupca" autofocus required>
 					</div>
 				</div>
 
@@ -69,9 +78,9 @@
 					<label for="adresaKupca" class="col-sm-3 control-label">Adresa
 						kupca</label>
 					<div class="col-sm-9">
-						<input type="text" id="adresaKupca" class="form-control"
+						<input type="text" id="adresaKupca" class="form-control" disabled
 							placeholder="Unesi adresu kupca" name="adresaKupca"
-							ng-Model="novoZaglavlje.adresaKupca">
+							ng-Model="novoZaglavlje.adresaKupca" required>
 					</div>
 				</div>
 
@@ -80,8 +89,8 @@
 						kupca</label>
 					<div class="col-sm-9">
 						<input type="text" id="pibKupca" class="form-control"
-							placeholder="Unesi pib kupca" name="pibKupca"
-							ng-Model="novoZaglavlje.pibKupca">
+							placeholder="Unesi pib kupca" name="pibKupca" disabled
+							value="kupacFirma.pib" ng-Model="novoZaglavlje.pibKupca" required>
 					</div>
 				</div>
 
@@ -91,7 +100,8 @@
 					<div class="col-sm-9">
 						<input type="text" id="oznakaValute" pattern="[A-Za-z]{3}"
 							class="form-control" placeholder="Unesi oznaku valute"
-							name="oznakaValute" ng-Model="novoZaglavlje.oznakaValute">
+							name="oznakaValute" ng-Model="novoZaglavlje.oznakaValute"
+							required>
 					</div>
 				</div>
 				<!-- /.form-group -->
@@ -109,6 +119,41 @@
 					</div>
 				</div>
 			</form>
+		</div>
+	</div>
+
+
+	<!--  MODALNI ZA KUPCA -->
+	<div id="izaberiKupca" class="modal fade" role="dialog"
+		style="color: black;">
+		<div class="modal-dialog">
+			<!-- Modal content-->
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+					<h4 class="modal-title">Izaberi kupca</h4>
+				</div>
+				<div class="modal-body">
+					<table class="table">
+						<thead>
+							<tr>
+								<th>Naziv</th>
+								<th>Adresa</th>
+								<th>PIB</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr ng-repeat="kupac in kupci" ng-click="setSelectedKupac(kupac)"
+								ng-class="{'info' : kupacFirma===kupac}">
+								<td>{{kupac.naziv}}</td>
+								<td>{{kupac.adresa}}</td>
+								<td>{{kupac.pib}}</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+
 		</div>
 	</div>
 </div>
